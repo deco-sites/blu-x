@@ -112,15 +112,15 @@ const options: Omit<Options, "selfURL"> = {
       },
     },
     fontFamily: {
-      sans: ["Albert Sans", "sans-serif"],
+      sans: ["Poppins", "sans-serif"],
       serif: ["inherit", "serif"],
     },
     screens: {
-      sm: "640px",
+      sm: "576px",
       md: "768px",
-      lg: "1024px",
-      xl: "1280px",
-      "2xl": "1536px",
+      lg: "992px",
+      xl: "1200px",
+      "2xl": "1400px",
     },
   },
   preflight: (preflight) => ({
