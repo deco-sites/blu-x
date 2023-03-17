@@ -34,10 +34,10 @@ const options: Omit<Options, "selfURL"> = {
   theme: {
     extend: {
       colors: {
-        "default": "#FFFFFF",
-        "header": "#FFFFFF",
+        "default": "#FFF",
+        "header": "#000",
         "badge": "#ff5100", // shopping cart tem isso tambem
-        "footer": "rgba(222,222,222, 1)",
+        "footer": "#ffffff",
         "interactive": "#161616",
         "interactive-inverse": "#FFFFFF",
         "hover": "rgba(0, 0, 0, 0.04)",
@@ -45,6 +45,7 @@ const options: Omit<Options, "selfURL"> = {
       },
       textColor: {
         "default": "#000",
+        "title": "#ff5100",
         "default-inverse": "#FFFFFF",
         "subdued": "#66736C",
         "subdued-inverse": "#C6C6C6",
@@ -74,6 +75,7 @@ const options: Omit<Options, "selfURL"> = {
         "body": ["16px", "20px"],
         "caption": ["13px", "16px"],
         "list-price": ["10px", "20px"],
+        "footer": ["0.75rem", "0.75rem"],
       },
       fontWeight: {
         "heading-1": "500",
@@ -84,6 +86,7 @@ const options: Omit<Options, "selfURL"> = {
         "body": "400",
         "caption": "400",
         "list-price": "400",
+        "newsletter": "300",
       },
       animation: {
         "slide-left": "slide-left-frame 0.4s ease normal",
