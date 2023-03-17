@@ -25,7 +25,7 @@ function Navbar({ items, searchbar }: {
           class={`flex-grow inline-flex items-center min-h-[${navbarHeight}]`}
           aria-label="Store logo"
         >
-          <Icon id="Logo" width={126} height={16} />
+          <Icon id="Logo" width={149} height={47} />
         </a>
 
         <div class="flex gap-1">
@@ -35,10 +35,10 @@ function Navbar({ items, searchbar }: {
       </div>
 
       {/* Desktop Version */}
-      <div class="hidden md:flex flex-row justify-between items-center border-b-1 border-default w-full pl-2 pr-3">
+      <div class="hidden md:flex flex-row justify-between items-center border-b-1 border-default w-full max-w-[1400px] mx-auto pl-2 pr-3">
         <div class="flex-none w-44">
           <a href="/" aria-label="Store logo" class="block px-4 py-3 w-[160px]">
-            <Icon id="Logo" width={126} height={16} />
+            <Icon id="Logo" width={149} height={47} />
           </a>
         </div>
         <div class="flex-auto flex justify-center">
