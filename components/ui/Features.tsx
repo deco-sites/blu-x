@@ -35,7 +35,8 @@ function FeatureHighlights(
           {features.map(({ icon: id = "Truck", title, description }) => (
             <div class="w-2/6">
               <div class="flex items-center gap-4 py-6 sm:py-0 sm:px-10">
-                <Icon class="text-badge" 
+                <Icon
+                  class="text-badge"
                   id={id}
                   width={40}
                   height={40}
