@@ -1,11 +1,11 @@
 import Image from "deco-sites/std/components/Image.tsx";
 import Text from "$store/components/ui/Text.tsx";
-import Avatar from "$store/components/ui/Avatar.tsx";
 import Button from "$store/components/ui/Button.tsx";
 import { useOffer } from "$store/sdk/useOffer.ts";
 import { formatPrice } from "$store/sdk/format.ts";
 import { useVariantPossibilities } from "$store/sdk/useVariantPossiblities.ts";
 import type { Product } from "deco-sites/std/commerce/types.ts";
+import ProductSize from "$store/components/ui/ProductSize.tsx";
 
 /**
  * A simple, inplace sku selector to be displayed once the user hovers the product card
@@ -22,7 +22,7 @@ function Sizes(product: Product) {
     <ul class="flex justify-center items-center gap-2">
       {options.map(([url, value]) => (
         <a href={url}>
-          <Avatar
+          <ProductSize
             class="bg-default"
             variant="abbreviation"
             content={value}
@@ -61,8 +61,8 @@ function ProductCard({ product, preload }: Props) {
           <Image
             src={front.url!}
             alt={front.alternateName}
-            width={200}
-            height={279}
+            width={339}
+            height={501}
             class="rounded w-full group-hover:hidden"
             preload={preload}
             loading={preload ? "eager" : "lazy"}
@@ -71,21 +71,23 @@ function ProductCard({ product, preload }: Props) {
           <Image
             src={back?.url ?? front.url!}
             alt={back?.alternateName ?? front.alternateName}
-            width={200}
-            height={279}
+            width={339}
+            height={501}
             class="rounded w-full hidden group-hover:block"
             sizes="(max-width: 640px) 50vw, 20vw"
           />
           {seller && (
             <div
-              class="absolute bottom-0 hidden sm:group-hover:flex flex-col gap-2 w-full p-2 bg-opacity-10"
+              class="absolute bottom-0 hidden sm:group-hover:flex flex-col gap-2 w-full bg-opacity-10"
               style={{
-                backgroundColor: "rgba(255, 255, 255, 0.2)",
+                backgroundColor: "rgba(255, 255, 255, 0.75)",
                 backdropFilter: "blur(2px)",
               }}
             >
               <Sizes {...product} />
-              <Button as="a" href={product.url}>Visualizar Produto</Button>
+              <Button variant="primary" as="a" href={product.url}>
+                Comprar
+              </Button>
             </div>
           )}
         </div>
@@ -95,7 +97,7 @@ function ProductCard({ product, preload }: Props) {
             class="overflow-hidden overflow-ellipsis whitespace-nowrap"
             variant="caption"
           >
-            {name}
+            {product.name}
           </Text>
           <div class="flex items-center gap-2">
             <Text
