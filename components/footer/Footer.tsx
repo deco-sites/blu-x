@@ -64,7 +64,7 @@ function Footer({ sections = [] }: Props) {
       <div class="w-full bg-footer flex flex-col bg-black">
         <Container class="w-full flex flex-col">
           <FooterContainer>
-            <Newsletter />
+            {/* <Newsletter /> */}
           </FooterContainer>
         </Container>
       </div>
