@@ -40,6 +40,15 @@ function GlobalTags() {
           /* latin-ext */
           @font-face {
             font-family: 'Poppins';
+            font-style: light;
+            font-weight: 300;
+            font-display: swap;
+            src: url(${asset("/fonts/Poppins-Thin.woff2")}) format('woff2');
+            unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+          }
+          /* latin-ext */
+          @font-face {
+            font-family: 'Poppins';
             font-style: normal;
             font-weight: 400;
             font-display: swap;

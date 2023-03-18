@@ -70,6 +70,7 @@ const options: Omit<Options, "selfURL"> = {
         "heading-1": ["30px", "67.2px"],
         "heading-2": ["24px", "28.8px"],
         "heading-3": ["20px", "24px"],
+        "h3": ["40px", "20px"],
         "menu": ["16px", "20px"],
         "button": ["14px", "18px"],
         "body": ["16px", "20px"],
@@ -87,6 +88,7 @@ const options: Omit<Options, "selfURL"> = {
         "caption": "400",
         "list-price": "400",
         "newsletter": "300",
+        "h3": "300",
       },
       animation: {
         "slide-left": "slide-left-frame 0.4s ease normal",

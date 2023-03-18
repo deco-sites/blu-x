@@ -869,16 +869,11 @@ const manifest: DecoManifest = {
                   "type": "string",
                   "title": "Href",
                 },
-                "label": {
-                  "type": "string",
-                  "title": "Label",
-                },
               },
               "required": [
                 "src",
                 "alt",
                 "href",
-                "label",
               ],
             },
             "title": "Highlights",
