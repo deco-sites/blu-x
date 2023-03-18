@@ -67,6 +67,7 @@ const icons = [
   "Visa",
   "Pix",
   "Logo",
+  "LogoMobile",
   "Facebook",
   "Instagram",
   "Tiktok",
