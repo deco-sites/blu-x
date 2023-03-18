@@ -8,7 +8,7 @@ function Newsletter() {
           variant="heading-2"
           tone="default-inverse"
           class="font-newsletter"
-        >
+        > 
           <strong class="font-semibold">CADASTRE-SE</strong>{" "}
           E RECEBA NOVIDADES E PROMOÇÕES
         </Text>
