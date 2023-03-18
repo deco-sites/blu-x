@@ -21,7 +21,7 @@ function Modals({ menu, searchbar }: Props) {
   return (
     <>
       <Modal
-        title="Menu"
+        title="Login"
         mode="sidebar-left"
         loading="lazy"
         open={displayMenu.value}
@@ -35,8 +35,7 @@ function Modals({ menu, searchbar }: Props) {
       </Modal>
 
       <Modal
-        title="Buscar"
-        mode="sidebar-right"
+        mode="sidebar-top"
         loading="lazy"
         open={displaySearchbar.value &&
           window?.matchMedia("(max-width: 767px)")?.matches}

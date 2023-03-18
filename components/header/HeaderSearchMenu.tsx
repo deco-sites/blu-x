@@ -19,8 +19,8 @@ export default function HeaderSearchMenu({ searchbar }: Props) {
   return (
     <div
       class={`${
-        open ? "block border-t-1 border-default shadow" : "hidden"
-      } absolute left-0 w-screen z-50 bg-white top-[${headerHeight}]`}
+        open ? "block border-t-1 border-default shadow" : ""
+      } block border-t-1 border-default shadow block z-50 bg-white`}
     >
       {open && (
         <Suspense fallback={<Loading />}>

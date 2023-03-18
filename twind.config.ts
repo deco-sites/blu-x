@@ -40,8 +40,10 @@ const options: Omit<Options, "selfURL"> = {
         "footer": "#ffffff",
         "interactive": "#161616",
         "interactive-inverse": "#FFFFFF",
+        "subMenu": "#F1F1F1",
         "hover": "rgba(0, 0, 0, 0.04)",
         "hover-inverse": "rgba(255, 255, 255, 0.4)",
+        "bgArrow": "rgba(0, 0, 0, 0.25)",
       },
       textColor: {
         "default": "#000",
@@ -70,12 +72,14 @@ const options: Omit<Options, "selfURL"> = {
         "heading-1": ["30px", "67.2px"],
         "heading-2": ["24px", "28.8px"],
         "heading-3": ["20px", "24px"],
-        "menu": ["16px", "20px"],
+        "menu": ["11px", "20px"],
         "button": ["14px", "18px"],
         "body": ["16px", "20px"],
         "caption": ["13px", "16px"],
         "list-price": ["10px", "20px"],
         "footer": ["0.75rem", "0.75rem"],
+        "small-text": ["12px", "14px"],
+        "nav-bar": ["14px", "14px"],
       },
       fontWeight: {
         "heading-1": "500",
@@ -92,6 +96,7 @@ const options: Omit<Options, "selfURL"> = {
         "slide-left": "slide-left-frame 0.4s ease normal",
         "slide-right": "slide-right-frame 0.4s ease normal",
         "slide-bottom": "slide-bottom-frame 0.4s ease normal",
+        "slide-top": "slide-top-frame 0.4s ease normal",
       },
       keyframes: {
         "slide-left-frame": {
@@ -104,6 +109,10 @@ const options: Omit<Options, "selfURL"> = {
         },
         "slide-bottom-frame": {
           from: { transform: "translateY(100%)" },
+          to: { transform: "translateY(0)" },
+        },
+        "slide-top-frame": {
+          from: { transform: "translateY(-140%)" },
           to: { transform: "translateY(0)" },
         },
       },
@@ -148,6 +157,13 @@ const options: Omit<Options, "selfURL"> = {
   plugins: {
     backdrop: {
       "&::backdrop": {
+        background: "rgba(0, 0, 0, 0.5)",
+      },
+    },
+    backdropSearch: {
+      "&::backdrop": {
+        top: "188px",
+        height: "calc(100% - 188px)",
         background: "rgba(0, 0, 0, 0.5)",
       },
     },

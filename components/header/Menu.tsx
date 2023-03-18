@@ -14,8 +14,10 @@ function MenuItem({ item, level = 0 }: { item: INavItem; level?: number }) {
 
   const title = (
     <Text
-      class="flex-grow min-h-[40px] flex items-center justify-start"
-      variant={level === 0 ? "menu" : "caption"}
+      class={`flex-grow min-h-[40px] flex items-center justify-start hover:text-badge hover:text-underline ${
+        level === 0 ? "text-uppercase" : ""
+      }`}
+      variant="menu"
     >
       {item.label}
     </Text>
@@ -24,7 +26,7 @@ function MenuItem({ item, level = 0 }: { item: INavItem; level?: number }) {
   return (
     <li>
       <div
-        class={`flex justify-between items-center w-full py-2 ${
+        class={`flex justify-between items-center w-full py-1 ${
           level > 0 ? "pl-2" : ""
         }`}
         onClick={() => {
@@ -38,17 +40,12 @@ function MenuItem({ item, level = 0 }: { item: INavItem; level?: number }) {
         {hasChildren && (
           <Button variant="icon">
             <Icon
-              class={open.value === true ? "hidden" : "block"}
-              id="Plus"
-              height={20}
-              width={20}
-              strokeWidth={1.5}
-            />
-            <Icon
-              class={open.value === true ? "block" : "hidden"}
-              id="Minus"
-              height={20}
-              width={20}
+              class={`duration-300 ease-out ${
+                open.value === true ? "-scale-y-100" : ""
+              }`}
+              id="ChevronDown"
+              height={15}
+              width={15}
               strokeWidth={1.5}
             />
           </Button>
@@ -56,20 +53,24 @@ function MenuItem({ item, level = 0 }: { item: INavItem; level?: number }) {
       </div>
 
       {hasChildren && (
-        <ul class={`flex-col ${open.value === true ? "flex" : "hidden"}`}>
-          <li>
-            <a href={item.href} class="w-full py-2 pl-2 inline-block">
-              <Text class="underline" variant="caption">
-                Ver todos
-              </Text>
-            </a>
-          </li>
+        <ul
+          class={`flex-col ${
+            open.value === true ? "flex max-h-full p-2" : "max-h-0"
+          } bg-subMenu -mx-3 ease-out duration-500 overflow-hidden`}
+        >
           {item.children!.map((node) => (
             <MenuItem
               item={node}
               level={level + 1}
             />
           ))}
+          <li>
+            <a href={item.href} class="w-full py-2 pl-2 inline-block">
+              <Text class="underline" variant="menu">
+                Ver todos
+              </Text>
+            </a>
+          </li>
         </ul>
       )}
     </li>
@@ -79,11 +80,12 @@ function MenuItem({ item, level = 0 }: { item: INavItem; level?: number }) {
 function Menu({ items }: Props) {
   return (
     <>
-      <ul class="px-4 flex-grow flex flex-col divide-y divide-default">
+      <ul class="px-3 flex-grow flex flex-col">
         {items.map((item) => <MenuItem item={item} />)}
       </ul>
 
-      <ul class="flex flex-col py-2 bg-hover">
+      {
+        /* <ul class="flex flex-col py-2 bg-hover">
         <li>
           <a
             class="flex items-center gap-4 px-4 py-2"
@@ -120,7 +122,8 @@ function Menu({ items }: Props) {
             <Text variant="caption">Minha conta</Text>
           </a>
         </li>
-      </ul>
+      </ul> */
+      }
     </>
   );
 }
