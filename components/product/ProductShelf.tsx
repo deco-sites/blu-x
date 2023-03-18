@@ -26,9 +26,9 @@ function ProductShelf({
   }
 
   return (
-    <Container
+    <div
       id={id}
-      class="grid grid-cols-[48px_1fr_48px] grid-rows-[48px_1fr_48px_1fr] py-10 px-0 sm:px-5"
+      class="w-full grid grid-cols-[48px_1fr_48px] grid-rows-[48px_1fr_48px_1fr] py-10 px-0 sm:px-5"
     >
       <h2 class="text-center row-start-1 col-span-full">
         <Text variant="heading-2">{title}</Text>
@@ -63,7 +63,7 @@ function ProductShelf({
       </>
 
       <SliderControllerJS rootId={id} />
-    </Container>
+    </div>
   );
 }
 
