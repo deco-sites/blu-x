@@ -44,6 +44,9 @@ function HighlightsThree({ highlights = [], title }: Props) {
             ))}
           </Slider>
         </div>
+        <div class="mt-6 text-center">
+          <span class="text-3xl font-light">Segue aí <span class="font-bold">@bluxrio</span></span>
+        </div>
       </div>
     </div>
   );
