@@ -61,13 +61,13 @@ export interface Props {
 function Footer({ sections = [] }: Props) {
   return (
     <div>
-      <footer class="w-full bg-footer flex flex-col bg-black">
+      <div class="w-full bg-footer flex flex-col bg-black">
         <Container class="w-full flex flex-col">
           <FooterContainer>
             <Newsletter />
           </FooterContainer>
         </Container>
-      </footer>
+      </div>
 
       <footer class="w-full bg-footer flex flex-col">
         <div>
@@ -75,34 +75,34 @@ function Footer({ sections = [] }: Props) {
             <FooterContainer>
               {/* Desktop view */}
               <ul class="hidden sm:flex flex-row gap-20">
-                {sections.map((section) => (
-                  <li>
-                    <div>
-                      <Text variant="footer" tone="title">
-                        {section.label}
-                      </Text>
+                  {sections.map((section) => (
+                      <li>
+                        <div>
+                          <Text variant="footer" tone="title" class="uppercase">
+                            {section.label}
+                          </Text>
 
-                      <ul
-                        class={`flex ${
-                          isIcon(section.children[0]) ? "flex-row" : "flex-col"
-                        } gap-2 pt-2`}
-                      >
-                        {section.children.map((item) => (
-                          <li>
-                            <SectionItem item={item} />
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </li>
-                ))}
+                          <ul
+                            class={`flex ${
+                              isIcon(section.children[0]) ? "flex-row" : "flex-col"
+                            } gap-2 pt-2`}
+                          >
+                            {section.children.map((item) => (
+                              <li>
+                                <SectionItem item={item} />
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </li>
+                  ))}
               </ul>
 
               {/* Mobile view */}
               <ul class="flex flex-col sm:hidden sm:flex-row gap-4">
                 {sections.map((section) => (
                   <li>
-                    <Text variant="body" tone="default">
+                    <Text variant="footer" tone="title" class="uppercase">
                       <details>
                         <summary>
                           {section.label}
