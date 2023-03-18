@@ -17,22 +17,21 @@ export interface Props {
 function HighlightsTwo({ highlights = [], title }: Props) {
   return (
     <div>
-    
       {/* Highlitght 2 */}
-      <div class="max-w-[1320px] grid grid-cols-1 grid-rows-[48px_1fr] py-10 mx-auto">
+      <div class="max-w-[1320px] grid grid-cols-1 grid-rows-[48px_1fr] py-10 mx-auto px-10">
         <h2 class="text-center">
           <Text variant="h3">{title}</Text>
         </h2>
 
         <div class="mt-10">
           <Slider
-            class="gap-6"
-            snap="snap-center sm:snap-start block first:ml-6 sm:first:ml-0 last:mr-6 sm:last:mr-0"
+            class="gap-0"
+            snap="snap-center sm:snap-start block"
           >
             {highlights.map(({ href, src, alt }) => (
               <a
                 href={href}
-                class="flex flex-col gap-4 items-center min-w-[190px] relative group"
+                class="flex flex-col gap-1 items-center w-full min-w-[50px] gap-4 relative group"
               >
                 <Image
                   src={src}
