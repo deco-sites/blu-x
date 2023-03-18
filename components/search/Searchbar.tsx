@@ -106,7 +106,13 @@ function Searchbar({
     : products;
 
   return (
-    <div class={`${variant === "desktop" ? "absolute left-0 top-50 z-50 -translate-y-2/4 -translate-x-[90%] bg-default" : "flex flex-col p-4 md:(py-6 px-20)"}`}>
+    <div
+      class={`${
+        variant === "desktop"
+          ? "absolute left-0 top-50 z-50 -translate-y-2/4 -translate-x-[90%] bg-default"
+          : "flex flex-col p-4 md:(py-6 px-20)"
+      }`}
+    >
       <div class="flex gap-4">
         <form
           id="searchbar"
@@ -173,7 +179,6 @@ function Searchbar({
         {hasSuggestions && !emptySuggestions && (
           <SearchTermList
             id="search-suggestion"
-            class="mt-6 mb-10"
             title=""
             terms={suggestions.value.searches!}
           />
