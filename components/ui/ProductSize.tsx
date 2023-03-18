@@ -37,7 +37,9 @@ type Props =
   & JSX.IntrinsicElements["button"]
   & (Abbreviation | Color | Idempotent);
 
-function ProductSize({ variant, content, class: _class = "", ...btnProps }: Props) {
+function ProductSize(
+  { variant, content, class: _class = "", ...btnProps }: Props,
+) {
   if (variant === "color") {
     return (
       <button

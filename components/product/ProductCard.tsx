@@ -85,7 +85,9 @@ function ProductCard({ product, preload }: Props) {
               }}
             >
               <Sizes {...product} />
-              <Button variant="primary" as="a" href={product.url}>Comprar</Button>
+              <Button variant="primary" as="a" href={product.url}>
+                Comprar
+              </Button>
             </div>
           )}
         </div>
