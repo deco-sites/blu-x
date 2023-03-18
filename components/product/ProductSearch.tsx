@@ -1,17 +1,12 @@
 import Image from "deco-sites/std/components/Image.tsx";
 import Text from "$store/components/ui/Text.tsx";
+import Avatar from "$store/components/ui/Avatar.tsx";
 import Button from "$store/components/ui/Button.tsx";
 import { useOffer } from "$store/sdk/useOffer.ts";
 import { formatPrice } from "$store/sdk/format.ts";
 import { useVariantPossibilities } from "$store/sdk/useVariantPossiblities.ts";
 import type { Product } from "deco-sites/std/commerce/types.ts";
-import ProductSize from "$store/components/ui/ProductSize.tsx";
 
-/**
- * A simple, inplace sku selector to be displayed once the user hovers the product card
- * It takes the user to the pdp once the user clicks on a given sku. This is interesting to
- * remove JS from the frontend
- */
 function Sizes(product: Product) {
   const possibilities = useVariantPossibilities(product);
   const options = Object.entries(
@@ -22,7 +17,7 @@ function Sizes(product: Product) {
     <ul class="flex justify-center items-center gap-2">
       {options.map(([url, value]) => (
         <a href={url}>
-          <ProductSize
+          <Avatar
             class="bg-default"
             variant="abbreviation"
             content={value}
@@ -40,7 +35,7 @@ interface Props {
   preload?: boolean;
 }
 
-function ProductCard({ product, preload }: Props) {
+function ProductSearch({ product, preload }: Props) {
   const {
     url,
     productID,
@@ -54,67 +49,53 @@ function ProductCard({ product, preload }: Props) {
   return (
     <div
       id={`product-card-${productID}`}
-      class="w-full group"
+      class="group"
     >
-      <a href={url} aria-label="product link">
-        <div class="relative w-full">
+      <a
+        class="flex items-center justify-center gap-2"
+        href={url}
+        aria-label="product link"
+      >
+        <div class="relative">
           <Image
             src={front.url!}
             alt={front.alternateName}
-            width={339}
-            height={501}
-            class="rounded w-full group-hover:hidden"
+            width={50}
+            height={50}
+            class="rounded group-hover:hidden min-w-[50px]"
             preload={preload}
             loading={preload ? "eager" : "lazy"}
-            sizes="(max-width: 640px) 50vw, 20vw"
           />
           <Image
             src={back?.url ?? front.url!}
             alt={back?.alternateName ?? front.alternateName}
-            width={339}
-            height={501}
-            class="rounded w-full hidden group-hover:block"
-            sizes="(max-width: 640px) 50vw, 20vw"
+            width={50}
+            height={50}
+            class="rounded hidden group-hover:block min-w-[50px]"
           />
-          {seller && (
-            <div
-              class="absolute bottom-0 hidden sm:group-hover:flex flex-col gap-2 w-full bg-opacity-10"
-              style={{
-                backgroundColor: "rgba(255, 255, 255, 0.75)",
-                backdropFilter: "blur(2px)",
-              }}
-            >
-              <Sizes {...product} />
-              <Button variant="primary" as="a" href={product.url}>
-                Comprar
-              </Button>
-            </div>
-          )}
         </div>
 
-        <div class="flex flex-col gap-2 py-2 text-center my-2">
-          <Text
-            class="overflow-hidden overflow-ellipsis whitespace-nowrap"
-            variant="caption"
-          >
-            {product.isVariantOf?.name}
+        <div class="flex flex-col gap-1 py-2 max-w-[70%] flex-1">
+          <Text variant="caption">
+            {name}
           </Text>
-          <div class="flex items-center gap-2 justify-center">
+          <div class="flex items-center gap-2">
             <Text
-              class="text-center line-through"
+              class="line-through"
               variant="list-price"
               tone="subdued"
             >
               {formatPrice(listPrice, offers!.priceCurrency!)}
             </Text>
-            <Text class="text-center" variant="caption" tone="price">
+            <Text variant="caption" tone="price">
               {formatPrice(price, offers!.priceCurrency!)}
             </Text>
           </div>
+          <Button as="a" href={product.url}>Visualizar</Button>
         </div>
       </a>
     </div>
   );
 }
 
-export default ProductCard;
+export default ProductSearch;

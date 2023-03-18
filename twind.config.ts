@@ -34,22 +34,26 @@ const options: Omit<Options, "selfURL"> = {
   theme: {
     extend: {
       colors: {
-        "default": "#FFFFFF",
-        "header": "#FFFFFF",
-        "badge": "#8C3D3D", // shopping cart tem isso tambem
-        "footer": "#003232",
+        "default": "#FFF",
+        "header": "#000",
+        "badge": "#ff5100", // shopping cart tem isso tambem
+        "footer": "#ffffff",
         "interactive": "#161616",
         "interactive-inverse": "#FFFFFF",
+        "subMenu": "#F1F1F1",
         "hover": "rgba(0, 0, 0, 0.04)",
         "hover-inverse": "rgba(255, 255, 255, 0.4)",
+        "bgArrow": "rgba(0, 0, 0, 0.25)",
       },
       textColor: {
-        "default": "#161616",
+        "default": "#000",
+        "title": "#ff5100",
         "default-inverse": "#FFFFFF",
         "subdued": "#66736C",
         "subdued-inverse": "#C6C6C6",
-        "price": "#8C3D3D",
-        "section-title": "#161616",
+        "price": "#000",
+        "old-price": "#b5b5b5",
+        "section-title": "#1D1D1D",
         "positive": "#1A7346",
         "critical": "#B44125",
       },
@@ -65,14 +69,18 @@ const options: Omit<Options, "selfURL"> = {
         interactive: ["2px solid #3379EF", "2px"],
       },
       fontSize: {
-        "heading-1": ["56px", "67.2px"],
+        "heading-1": ["30px", "67.2px"],
         "heading-2": ["24px", "28.8px"],
         "heading-3": ["20px", "24px"],
-        "menu": ["16px", "20px"],
+        "h3": ["40px", "20px"],
+        "menu": ["11px", "20px"],
         "button": ["14px", "18px"],
         "body": ["16px", "20px"],
         "caption": ["13px", "16px"],
         "list-price": ["10px", "20px"],
+        "footer": ["0.75rem", "0.75rem"],
+        "small-text": ["12px", "14px"],
+        "nav-bar": ["14px", "14px"],
       },
       fontWeight: {
         "heading-1": "500",
@@ -83,11 +91,14 @@ const options: Omit<Options, "selfURL"> = {
         "body": "400",
         "caption": "400",
         "list-price": "400",
+        "newsletter": "300",
+        "h3": "300",
       },
       animation: {
         "slide-left": "slide-left-frame 0.4s ease normal",
         "slide-right": "slide-right-frame 0.4s ease normal",
         "slide-bottom": "slide-bottom-frame 0.4s ease normal",
+        "slide-top": "slide-top-frame 0.4s ease normal",
       },
       keyframes: {
         "slide-left-frame": {
@@ -102,6 +113,10 @@ const options: Omit<Options, "selfURL"> = {
           from: { transform: "translateY(100%)" },
           to: { transform: "translateY(0)" },
         },
+        "slide-top-frame": {
+          from: { transform: "translateY(-140%)" },
+          to: { transform: "translateY(0)" },
+        },
       },
       boxShadow: {
         sm: "0px 1px 3px 0px #00000014",
@@ -111,15 +126,15 @@ const options: Omit<Options, "selfURL"> = {
       },
     },
     fontFamily: {
-      sans: ["Albert Sans", "sans-serif"],
+      sans: ["Poppins", "sans-serif"],
       serif: ["inherit", "serif"],
     },
     screens: {
-      sm: "640px",
+      sm: "576px",
       md: "768px",
-      lg: "1024px",
-      xl: "1280px",
-      "2xl": "1536px",
+      lg: "992px",
+      xl: "1200px",
+      "2xl": "1400px",
     },
   },
   preflight: (preflight) => ({
@@ -144,6 +159,13 @@ const options: Omit<Options, "selfURL"> = {
   plugins: {
     backdrop: {
       "&::backdrop": {
+        background: "rgba(0, 0, 0, 0.5)",
+      },
+    },
+    backdropSearch: {
+      "&::backdrop": {
+        top: "188px",
+        height: "calc(100% - 188px)",
         background: "rgba(0, 0, 0, 0.5)",
       },
     },
