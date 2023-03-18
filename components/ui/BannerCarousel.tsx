@@ -108,7 +108,7 @@ function Dots({ images, interval = 0 }: Props) {
         }}
       >
       </style>
-      <ol class="hidden items-center justify-center col-span-full gap-4 z-10 row-start-4">
+      <ol class="flex md:hidden items-center justify-center col-span-full gap-4 z-10 row-start-4">
         {images?.map((_, index) => (
           <li class="h-full">
             <button
@@ -129,10 +129,10 @@ function Dots({ images, interval = 0 }: Props) {
                       }
                     `,
                   )
-                } w-16 sm:w-20 h-0.5`}
+                } w-16 sm:w-20 h-1`}
                 style={{
                   background:
-                    "linear-gradient(to right, #FFFFFF var(--dot-progress), rgba(255, 255, 255, 0.4) var(--dot-progress))",
+                    "linear-gradient(to right, #ff5100 var(--dot-progress), rgba(255, 255, 255, 0.4) var(--dot-progress))",
                 }}
               />
             </button>
@@ -146,31 +146,31 @@ function Dots({ images, interval = 0 }: Props) {
 function Controls() {
   return (
     <>
-      <div class="flex items-center justify-center z-10 absolute top-1/2 left-[15px] md:left-[5%] -translate-y-[50%]">
+      <div class="md:flex items-center justify-center z-10 absolute top-1/2 left-[15px] md:left-[5%] -translate-y-[50%] hidden">
         <Button
-          class="h-[61px] w-[33px]"
-          variant="icon"
+          class="h-[60px] w-[60px] p-[10px] bg-bgArrow border-1 border-default"
+          variant="iconArrow"
           data-slide="prev"
           aria-label="Previous item"
         >
           <Icon
             class="text-default-inverse"
-            size={66}
+            size={40}
             id="ChevronLeft"
             strokeWidth={2}
           />
         </Button>
       </div>
-      <div class="flex items-center justify-center z-10 absolute top-1/2 right-[15px] md:right-[5%] -translate-y-[50%]">
+      <div class="md:flex items-center justify-center z-10 absolute top-1/2 right-[15px] md:right-[5%] -translate-y-[50%] hidden">
         <Button
-          class="h-[61px] w-[33px]"
-          variant="icon"
+          class="h-[60px] w-[60px] p-[10px] bg-bgArrow border-1 border-default"
+          variant="iconArrow"
           data-slide="next"
           aria-label="Next item"
         >
           <Icon
             class="text-default-inverse"
-            size={66}
+            size={40}
             id="ChevronRight"
             strokeWidth={2}
           />
