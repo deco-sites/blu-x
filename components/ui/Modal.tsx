@@ -22,8 +22,8 @@ export type Props = JSX.IntrinsicElements["dialog"] & {
 };
 
 const styles = {
-  "sidebar-right": "animate-slide-left sm:ml-auto max-h-full h-full backdrop",
-  "sidebar-left": "animate-slide-right max-h-full h-full backdrop",
+  "sidebar-right": "animate-slide-left sm:ml-auto min-w-full max-h-full h-full backdrop md:max-w-[400px] md:min-w-[400px]",
+  "sidebar-left": "animate-slide-right max-h-full h-full backdrop min-w-[250px]",
   center: "",
   "sidebar-top":
     "animate-slide-top min-w-full z-40 relative top-[98px] backdropSearch",
@@ -40,7 +40,7 @@ const Modal = ({
 }: Props) => {
   const lazy = useSignal(false);
   const ref = useRef<HTMLDialogElement>(null);
-  const variant = `p-0 m-0 max-w-full sm:max-w-lg min-w-[250px] ${
+  const variant = `p-0 m-0 max-w-full sm:max-w-lg ${
     styles[mode]
   }`;
 

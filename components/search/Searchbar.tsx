@@ -106,7 +106,7 @@ function Searchbar({
     : products;
 
   return (
-    <div class="flex flex-col p-4 md:(py-6 px-20)">
+    <div class={`${variant === "desktop" ? "absolute left-0 top-50 z-50 -translate-y-2/4 -translate-x-[90%] bg-default" : "flex flex-col p-4 md:(py-6 px-20)"}`}>
       <div class="flex gap-4">
         <form
           id="searchbar"
@@ -163,19 +163,23 @@ function Searchbar({
         </form>
         {variant === "desktop" && <CloseButton />}
       </div>
-      <div class="flex flex-col gap-6 divide-y divide-default mt-6 my-10 empty:mt-0 ">
+      <div class="flex flex-col gap-6 divide-y divide-default 
+                  empty:mt-0 md:absolute md:bottom-0 md:left-[50%] 
+                  md:translate-y-full md:-translate-x-2/4 md:bg-default
+                  md:px-2 md:min-w-full md:max-h-[500px] md:overflow-scroll">
         {searches && searches.length > 0 && !hasSuggestions && (
           <SearchTermList title="Mais buscados" terms={searches} />
         )}
         {hasSuggestions && !emptySuggestions && (
           <SearchTermList
             id="search-suggestion"
+            class="mt-6 mb-10"
             title=""
             terms={suggestions.value.searches!}
           />
         )}
         {hasSuggestions && emptySuggestions && (
-          <div class="py-16 md:(py-6!) flex flex-col gap-4 w-full">
+          <div class="py-16 md:(py-6!) flex flex-col gap-4 w-full mt-6 mb-10">
             <Text
               variant="heading-3"
               class="text-center"
@@ -191,7 +195,7 @@ function Searchbar({
           </div>
         )}
         {_products && !emptySuggestions && (
-          <div class="flex flex-col pt-6 md:pt-0 gap-6 overflow-x-hidden">
+          <div class="flex flex-col pt-6 md:pt-0 gap-6 overflow-x-hidden pt-6 pb-10">
             {_products.map((
               product,
               index,

@@ -46,7 +46,7 @@ function Navbar({ items, searchbar }: {
 
       {/* Desktop Version */}
       <div class="hidden md:block border-b-1 border-default w-full">
-        <div class="md:flex flex-row justify-between items-center w-full max-w-[1400px] mx-auto pl-2 pr-3">
+        <div class="md:flex flex-row justify-between items-center w-full max-w-[1300px] mx-auto pl-2 pr-3">
           <div class="flex-none w-44">
             <a
               href="/"
@@ -56,7 +56,7 @@ function Navbar({ items, searchbar }: {
               <Icon id="Logo" width={149} height={47} />
             </a>
           </div>
-          <div class="flex-none w-44 flex items-center justify-end gap-2">
+          <div class="flex-none flex items-center justify-between gap-10 relative">
             <HeaderButton variant="search" />
             <HeaderSearchMenu searchbar={searchbar} />
             <Button
@@ -68,12 +68,14 @@ function Navbar({ items, searchbar }: {
               <Icon id="User" width={20} height={20} strokeWidth={0.4} />
               <Text variant="caption" tone="default">Login</Text>
             </Button>
-            <HeaderButton variant="cart" />
-            <span
-              class={`rounded-full bg-badge px-1 w-[20px] h-[20px] text-default-inverse text-xs text-center leading-5`}
-            >
-              {itensCarrinho && itensCarrinho >= 0 ? itensCarrinho : 0}
-            </span>
+            <div class="flex justify-center items-center">
+              <HeaderButton variant="cart" />
+              <span
+                class={`rounded-full bg-badge px-1 w-[20px] h-[20px] text-default-inverse text-xs text-center leading-5`}
+              >
+                {itensCarrinho && itensCarrinho >= 0 ? itensCarrinho : 0}
+              </span>
+            </div>
           </div>
         </div>
       </div>
