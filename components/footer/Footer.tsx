@@ -75,27 +75,27 @@ function Footer({ sections = [] }: Props) {
             <FooterContainer>
               {/* Desktop view */}
               <ul class="hidden sm:flex flex-row gap-20">
-                  {sections.map((section) => (
-                      <li>
-                        <div>
-                          <Text variant="footer" tone="title" class="uppercase">
-                            {section.label}
-                          </Text>
+                {sections.map((section) => (
+                  <li>
+                    <div>
+                      <Text variant="footer" tone="title" class="uppercase">
+                        {section.label}
+                      </Text>
 
-                          <ul
-                            class={`flex ${
-                              isIcon(section.children[0]) ? "flex-row" : "flex-col"
-                            } gap-2 pt-2`}
-                          >
-                            {section.children.map((item) => (
-                              <li>
-                                <SectionItem item={item} />
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      </li>
-                  ))}
+                      <ul
+                        class={`flex ${
+                          isIcon(section.children[0]) ? "flex-row" : "flex-col"
+                        } gap-2 pt-2`}
+                      >
+                        {section.children.map((item) => (
+                          <li>
+                            <SectionItem item={item} />
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </li>
+                ))}
               </ul>
 
               {/* Mobile view */}

@@ -4,22 +4,22 @@ import Text from "$store/components/ui/Text.tsx";
 import Slider from "$store/components/ui/Slider.tsx";
 import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
 
-export interface Highlight {
+export interface HighlightsThree {
   src: LiveImage;
   alt: string;
   href: string;
 }
 
 export interface Props {
-  highlights?: Highlight[];
+  highlights?: HighlightsThree[];
   title: string;
 }
 
-function Highlights({ highlights = [], title }: Props) {
+function HighlightsThree({ highlights = [], title }: Props) {
   return (
     <div>
-      {/* Highlitght 1 */}
-      <div class="max-w-full grid grid-cols-1 grid-rows-[48px_1fr] py-10">
+      {/* Highlitght 3 */}
+      <div class="max-w-[1320px] grid grid-cols-1 grid-rows-[48px_1fr] py-10 mx-auto">
         <h2 class="text-center">
           <Text variant="h3">{title}</Text>
         </h2>
@@ -37,13 +37,9 @@ function Highlights({ highlights = [], title }: Props) {
                 <Image
                   src={src}
                   alt={alt}
-                  width={400}
-                  height={400}
+                  width={663}
+                  height={950}
                 />
-
-                <span class="hidden group-hover:block bg-badge text-white font-semibold py-2 px-6 rounded-[50px] absolute top-[75%] left-1/2 -translate-1/2 z-20">
-                  Conferir
-                </span>
               </a>
             ))}
           </Slider>
@@ -53,4 +49,4 @@ function Highlights({ highlights = [], title }: Props) {
   );
 }
 
-export default Highlights;
+export default HighlightsThree;

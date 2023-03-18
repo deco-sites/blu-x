@@ -1,49 +1,44 @@
 import Image from "deco-sites/std/components/Image.tsx";
-import Container from "$store/components/ui/Container.tsx";
 import Text from "$store/components/ui/Text.tsx";
 import Slider from "$store/components/ui/Slider.tsx";
 import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
 
-export interface Highlight {
+export interface HighlightsTwo {
   src: LiveImage;
   alt: string;
   href: string;
 }
 
 export interface Props {
-  highlights?: Highlight[];
+  highlights?: HighlightsTwo[];
   title: string;
 }
 
-function Highlights({ highlights = [], title }: Props) {
+function HighlightsTwo({ highlights = [], title }: Props) {
   return (
     <div>
-      {/* Highlitght 1 */}
-      <div class="max-w-full grid grid-cols-1 grid-rows-[48px_1fr] py-10">
+      {/* Highlitght 2 */}
+      <div class="max-w-[1320px] grid grid-cols-1 grid-rows-[48px_1fr] py-10 mx-auto px-10">
         <h2 class="text-center">
           <Text variant="h3">{title}</Text>
         </h2>
 
         <div class="mt-10">
           <Slider
-            class="gap-6"
-            snap="snap-center sm:snap-start block first:ml-6 sm:first:ml-0 last:mr-6 sm:last:mr-0"
+            class="gap-0"
+            snap="snap-center sm:snap-start block"
           >
             {highlights.map(({ href, src, alt }) => (
               <a
                 href={href}
-                class="flex flex-col gap-4 items-center min-w-[190px] relative group"
+                class="flex flex-col gap-1 items-center w-full min-w-[50px] gap-4 relative group"
               >
                 <Image
                   src={src}
                   alt={alt}
-                  width={400}
-                  height={400}
+                  width={352}
+                  height={501}
                 />
-
-                <span class="hidden group-hover:block bg-badge text-white font-semibold py-2 px-6 rounded-[50px] absolute top-[75%] left-1/2 -translate-1/2 z-20">
-                  Conferir
-                </span>
               </a>
             ))}
           </Slider>
@@ -53,4 +48,4 @@ function Highlights({ highlights = [], title }: Props) {
   );
 }
 
-export default Highlights;
+export default HighlightsTwo;
