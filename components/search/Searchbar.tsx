@@ -16,11 +16,10 @@ import { useEffect, useRef } from "preact/compat";
 import Icon from "$store/components/ui/Icon.tsx";
 import Text from "$store/components/ui/Text.tsx";
 import Button from "$store/components/ui/Button.tsx";
-import ProductCard from "$store/components/product/ProductCard.tsx";
-import Slider from "$store/components/ui/Slider.tsx";
 import useAutocomplete from "deco-sites/std/commerce/vtex/hooks/useAutocomplete.ts";
 import SearchTermList from "./SearchTermList.tsx";
 import { useUI } from "$store/sdk/useUI.ts";
+import ProductSearch from "$store/components/product/ProductSearch.tsx";
 
 function CloseButton() {
   const { displaySearchbar } = useUI();
@@ -40,7 +39,7 @@ export interface EditableProps {
   /**
    * @title Placeholder
    * @description Search bar default placeholder message
-   * @default What are you looking for?
+   * @default Pesquise por...
    */
   placeholder?: string;
   /**
@@ -76,7 +75,7 @@ export type Props = EditableProps & {
 };
 
 function Searchbar({
-  placeholder = "What are you looking for?",
+  placeholder = "Pesquise por...",
   action = "/s",
   name = "q",
   query,
@@ -107,31 +106,39 @@ function Searchbar({
     : products;
 
   return (
-    <div class="flex flex-col p-4 md:(py-6 px-20)">
+    <div
+      class={`${
+        variant === "desktop"
+          ? "absolute left-0 top-50 z-50 -translate-y-2/4 -translate-x-[90%] bg-default"
+          : "flex flex-col p-4 md:(py-6 px-20)"
+      }`}
+    >
       <div class="flex gap-4">
         <form
           id="searchbar"
           action={action}
-          class="flex-grow flex gap-3 px-3 py-2 border border-default"
+          class="flex-grow flex gap-3 px-3 py-2 border border-default max-w-full relative"
         >
-          <Button
-            variant="icon"
-            aria-label="Search"
-            htmlFor="searchbar"
-            tabIndex={-1}
-          >
-            <Icon
-              class="text-subdued"
-              id="MagnifyingGlass"
-              width={20}
-              height={20}
-              strokeWidth={0.01}
-            />
-          </Button>
+          <div class="absolute right-[5px]">
+            <Button
+              variant="icon"
+              aria-label="Search"
+              htmlFor="searchbar"
+              tabIndex={-1}
+            >
+              <Icon
+                class="text-subdued"
+                id="MagnifyingGlass"
+                width={20}
+                height={20}
+                strokeWidth={0.01}
+              />
+            </Button>
+          </div>
           <input
             ref={searchInputRef}
             id="search-input"
-            class="flex-grow outline-none placeholder-shown:sibling:hidden"
+            class="flex-grow outline-none placeholder-shown:sibling:hidden max-w-[60%]"
             name={name}
             defaultValue={query}
             onInput={(e) => {
@@ -147,7 +154,7 @@ function Searchbar({
           <button
             type="button"
             aria-label="Clean search"
-            class="focus:outline-none"
+            class="focus:outline-none absolute right-[30px]"
             tabIndex={-1}
             onClick={(e) => {
               e.stopPropagation();
@@ -162,19 +169,22 @@ function Searchbar({
         </form>
         {variant === "desktop" && <CloseButton />}
       </div>
-      <div class="flex flex-col gap-6 divide-y divide-default mt-6 empty:mt-0 md:(flex-row divide-y-0)">
+      <div class="flex flex-col gap-6 divide-y divide-default 
+                  empty:mt-0 md:absolute md:bottom-0 md:left-[50%] 
+                  md:translate-y-full md:-translate-x-2/4 md:bg-default
+                  md:px-2 md:min-w-full md:max-h-[500px] md:overflow-scroll">
         {searches && searches.length > 0 && !hasSuggestions && (
           <SearchTermList title="Mais buscados" terms={searches} />
         )}
         {hasSuggestions && !emptySuggestions && (
           <SearchTermList
             id="search-suggestion"
-            title="Sugestões"
+            title=""
             terms={suggestions.value.searches!}
           />
         )}
         {hasSuggestions && emptySuggestions && (
-          <div class="py-16 md:(py-6!) flex flex-col gap-4 w-full">
+          <div class="py-16 md:(py-6!) flex flex-col gap-4 w-full mt-6 mb-10">
             <Text
               variant="heading-3"
               class="text-center"
@@ -190,26 +200,11 @@ function Searchbar({
           </div>
         )}
         {_products && !emptySuggestions && (
-          <div class="flex flex-col pt-6 md:pt-0 gap-6 overflow-x-hidden">
-            <Text class="px-4" variant="heading-3">Produtos sugeridos</Text>
-            <Slider>
-              {_products.map((
-                product,
-                index,
-              ) => (
-                <div
-                  class={`${
-                    index === 0
-                      ? "ml-4"
-                      : index === _products.length - 1
-                      ? "mr-4"
-                      : ""
-                  } min-w-[200px] max-w-[200px]`}
-                >
-                  <ProductCard product={product} />
-                </div>
-              ))}
-            </Slider>
+          <div class="flex flex-col pt-6 md:pt-0 gap-6 overflow-x-hidden pt-6 pb-10">
+            {_products.map((
+              product,
+              index,
+            ) => <ProductSearch product={product} key={index} />)}
           </div>
         )}
       </div>

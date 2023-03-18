@@ -407,6 +407,10 @@ const manifest: DecoManifest = {
                     },
                     {
                       "type": "string",
+                      "const": "LogoMobile",
+                    },
+                    {
+                      "type": "string",
                       "const": "Facebook",
                     },
                     {
@@ -610,6 +614,10 @@ const manifest: DecoManifest = {
                               },
                               {
                                 "type": "string",
+                                "const": "LogoMobile",
+                              },
+                              {
+                                "type": "string",
                                 "const": "Facebook",
                               },
                               {
@@ -705,7 +713,7 @@ const manifest: DecoManifest = {
                 ],
                 "title": "Placeholder",
                 "description": "Search bar default placeholder message",
-                "default": "What are you looking for?",
+                "default": "Pesquise por...",
               },
               "action": {
                 "type": [

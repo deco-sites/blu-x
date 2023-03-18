@@ -92,9 +92,9 @@ going live, you can learn how to [customize the code](#customize-the-store)
 Checklist
 
 - [ ] Ecommerce platform connected
-- [ ] Fonts added
-- [ ] Logo changed
-- [ ] favicon.ico, robots.txt changed
+- [X] Fonts added
+- [X] Logo changed
+- [X] favicon.ico, robots.txt changed
 - [ ] Design system changed
 
 ### Connecting your e-commerce platform

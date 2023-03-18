@@ -22,6 +22,7 @@ export type AvailableIcons =
   | "Visa"
   | "Pix"
   | "Logo"
+  | "LogoMobile"
   | "Facebook"
   | "Instagram"
   | "Tiktok"

@@ -17,14 +17,6 @@ export default function SearchTermList({ terms, title, ...ulProps }: Props) {
           <li>
             <a href={`/s?q=${term}`} class="flex gap-4 items-center">
               <Text variant="body">
-                <Icon
-                  id="MagnifyingGlass"
-                  width={20}
-                  height={20}
-                  strokeWidth={0.01}
-                />
-              </Text>
-              <Text variant="body">
                 {term}
               </Text>
             </a>
