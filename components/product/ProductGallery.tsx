@@ -1,5 +1,5 @@
 import ProductCard from "$store/components/product/ProductCard.tsx";
-import Container from "$store/components/ui/Container.tsx";
+import ContainerCustom from "$store/components/ui/ContainerCustom.tsx";
 import Button from "$store/components/ui/Button.tsx";
 import Text from "$store/components/ui/Text.tsx";
 import Icon from "$store/components/ui/Icon.tsx";
@@ -20,7 +20,7 @@ function NotFound() {
 
 function Gallery({ page }: { page: ProductListingPage }) {
   return (
-    <Container class="px-4 sm:py-10">
+    <ContainerCustom class="px-4 sm:py-10">
       <div class="relative grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-10 items-center">
         {page.products?.map((product, index) => (
           <div class="w-full list-none">
@@ -44,7 +44,7 @@ function Gallery({ page }: { page: ProductListingPage }) {
           </Button>
         </a>
       </div>
-    </Container>
+    </ContainerCustom>
   );
 }
 

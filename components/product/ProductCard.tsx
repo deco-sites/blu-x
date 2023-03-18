@@ -78,7 +78,7 @@ function ProductCard({ product, preload }: Props) {
           />
           {seller && (
             <div
-              class="absolute bottom-0 hidden sm:group-hover:flex flex-col gap-2 w-full bg-opacity-10"
+              class="absolute bottom-0 hidden sm:group-hover:flex flex-col py-2 gap-2 w-full bg-opacity-10"
               style={{
                 backgroundColor: "rgba(255, 255, 255, 0.75)",
                 backdropFilter: "blur(2px)",
@@ -92,22 +92,22 @@ function ProductCard({ product, preload }: Props) {
           )}
         </div>
 
-        <div class="flex flex-col gap-1 py-2">
+        <div class="flex flex-col gap-2 py-2 text-center my-2">
           <Text
             class="overflow-hidden overflow-ellipsis whitespace-nowrap"
             variant="caption"
           >
             {product.isVariantOf?.name}
           </Text>
-          <div class="flex items-center gap-2">
+          <div class="flex items-center gap-2 justify-center">
             <Text
-              class="line-through"
+              class="text-center line-through"
               variant="list-price"
               tone="subdued"
             >
               {formatPrice(listPrice, offers!.priceCurrency!)}
             </Text>
-            <Text variant="caption" tone="price">
+            <Text class="text-center" variant="caption" tone="price">
               {formatPrice(price, offers!.priceCurrency!)}
             </Text>
           </div>
