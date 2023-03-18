@@ -16,15 +16,17 @@ if (IS_BROWSER && typeof window.HTMLDialogElement === "undefined") {
 
 export type Props = JSX.IntrinsicElements["dialog"] & {
   title?: string;
-  mode?: "sidebar-right" | "sidebar-left" | "center";
+  mode?: "sidebar-right" | "sidebar-left" | "center" | "sidebar-top";
   onClose?: () => Promise<void> | void;
   loading?: "lazy" | "eager";
 };
 
 const styles = {
-  "sidebar-right": "animate-slide-left sm:ml-auto",
-  "sidebar-left": "animate-slide-right",
+  "sidebar-right": "animate-slide-left sm:ml-auto max-h-full h-full backdrop",
+  "sidebar-left": "animate-slide-right max-h-full h-full backdrop",
   center: "",
+  "sidebar-top":
+    "animate-slide-top min-w-full z-40 relative top-[98px] backdropSearch",
 };
 
 const Modal = ({
@@ -38,7 +40,9 @@ const Modal = ({
 }: Props) => {
   const lazy = useSignal(false);
   const ref = useRef<HTMLDialogElement>(null);
-  const variant = styles[mode];
+  const variant = `p-0 m-0 max-w-full sm:max-w-lg min-w-[250px] ${
+    styles[mode]
+  }`;
 
   useEffect(() => {
     if (ref.current?.open === true && open === false) {
@@ -60,21 +64,31 @@ const Modal = ({
     <dialog
       {...props}
       ref={ref}
-      class={`bg-transparent p-0 m-0 max-w-full sm:max-w-lg w-full max-h-full h-full backdrop ${variant} ${
-        props.class ?? ""
-      }`}
+      class={`${variant} ${props.class ?? ""}`}
       onClick={(e) =>
         (e.target as HTMLDialogElement).tagName === "DIALOG" && onClose?.()}
     >
-      <section class="pt-6 h-full bg-default flex flex-col">
-        <header class="flex px-4 justify-between items-center pb-6 border-b-1 border-default">
-          <h1>
-            <Text variant="heading-2">{title}</Text>
-          </h1>
-          <Button variant="icon" onClick={onClose}>
-            <Icon id="XMark" width={20} height={20} strokeWidth={2} />
-          </Button>
-        </header>
+      <section class="pt-4 h-full bg-default flex flex-col">
+        {title
+          ? (
+            <header class="flex px-4 justify-between items-center pb-4 border-b-1 border-default">
+              <h1 class="flex flex-start items-center">
+                <Button
+                  as="a"
+                  variant="icon"
+                  href="/login"
+                  aria-label="Log in"
+                >
+                  <Icon id="User" width={20} height={20} strokeWidth={0.4} />
+                </Button>
+                <Text variant="small-text">{title}</Text>
+              </h1>
+              <Button variant="icon" onClick={onClose}>
+                <Icon id="XMark" width={15} height={15} strokeWidth={2} />
+              </Button>
+            </header>
+          )
+          : ""}
         <div class="overflow-y-auto h-full flex flex-col">
           {loading === "lazy" ? lazy.value && children : children}
         </div>
