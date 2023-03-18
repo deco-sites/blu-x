@@ -19,6 +19,7 @@ function NotFound() {
 }
 
 function Gallery({ page }: { page: ProductListingPage }) {
+
   return (
     <Container class="px-4 sm:py-10">
       <div class="relative grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-10 items-center">
