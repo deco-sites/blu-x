@@ -21,8 +21,8 @@ type Props = JSX.IntrinsicElements["span"] & {
     | "body"
     | "caption"
     | "list-price"
-    | "h3";
-    | "footer";
+    | "h3"
+    | "footer"
     | "small-text";
 };
 
