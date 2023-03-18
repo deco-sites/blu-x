@@ -24,7 +24,7 @@ const isIcon = (item: Item): item is IconItem =>
 
 function SectionItem({ item }: { item: Item }) {
   return (
-    <Text variant="caption" tone="default-inverse">
+    <Text variant="caption" tone="default">
       {isIcon(item)
         ? (
           <div class="border-default border-1 py-1.5 px-2.5">
@@ -60,124 +60,132 @@ export interface Props {
 
 function Footer({ sections = [] }: Props) {
   return (
-    <footer class="w-full bg-footer flex flex-col divide-y-1 divide-default">
-      <div>
-        <Container class="w-full flex flex-col divide-y-1 divide-default">
+    <div>
+      <div class="w-full bg-footer flex flex-col bg-black">
+        <Container class="w-full flex flex-col">
           <FooterContainer>
             {/* <Newsletter /> */}
           </FooterContainer>
+        </Container>
+      </div>
 
-          <FooterContainer>
-            {/* Desktop view */}
-            <ul class="hidden sm:flex flex-row gap-20">
-              {sections.map((section) => (
-                <li>
-                  <div>
-                    <Text variant="heading-3" tone="default-inverse">
-                      {section.label}
+      <footer class="w-full bg-footer flex flex-col">
+        <div>
+          <Container class="w-full flex flex-col">
+            <FooterContainer>
+              {/* Desktop view */}
+              <ul class="hidden sm:flex flex-row gap-20">
+                  {sections.map((section) => (
+                      <li>
+                        <div>
+                          <Text variant="footer" tone="title" class="uppercase">
+                            {section.label}
+                          </Text>
+
+                          <ul
+                            class={`flex ${
+                              isIcon(section.children[0]) ? "flex-row" : "flex-col"
+                            } gap-2 pt-2`}
+                          >
+                            {section.children.map((item) => (
+                              <li>
+                                <SectionItem item={item} />
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </li>
+                  ))}
+              </ul>
+
+              {/* Mobile view */}
+              <ul class="flex flex-col sm:hidden sm:flex-row gap-4">
+                {sections.map((section) => (
+                  <li>
+                    <Text variant="footer" tone="title" class="uppercase">
+                      <details>
+                        <summary>
+                          {section.label}
+                        </summary>
+
+                        <ul
+                          class={`flex ${
+                            isIcon(section.children[0])
+                              ? "flex-row"
+                              : "flex-col"
+                          } gap-2 px-2 pt-2`}
+                        >
+                          {section.children.map((item) => (
+                            <li>
+                              <SectionItem item={item} />
+                            </li>
+                          ))}
+                        </ul>
+                      </details>
                     </Text>
+                  </li>
+                ))}
+              </ul>
+            </FooterContainer>
+          </Container>
+        </div>
 
-                    <ul
-                      class={`flex ${
-                        isIcon(section.children[0]) ? "flex-row" : "flex-col"
-                      } gap-2 pt-2`}
-                    >
-                      {section.children.map((item) => (
-                        <li>
-                          <SectionItem item={item} />
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </li>
-              ))}
-            </ul>
-
-            {/* Mobile view */}
-            <ul class="flex flex-col sm:hidden sm:flex-row gap-4">
-              {sections.map((section) => (
-                <li>
-                  <Text variant="body" tone="default-inverse">
-                    <details>
-                      <summary>
-                        {section.label}
-                      </summary>
-
-                      <ul
-                        class={`flex ${
-                          isIcon(section.children[0]) ? "flex-row" : "flex-col"
-                        } gap-2 px-2 pt-2`}
-                      >
-                        {section.children.map((item) => (
-                          <li>
-                            <SectionItem item={item} />
-                          </li>
-                        ))}
-                      </ul>
-                    </details>
-                  </Text>
-                </li>
-              ))}
-            </ul>
-          </FooterContainer>
-        </Container>
-      </div>
-
-      <div>
-        <Container class="w-full">
-          <FooterContainer class="flex justify-between w-full">
-            <Text
-              class="flex items-center gap-1"
-              variant="body"
-              tone="default-inverse"
-            >
-              Powered by{" "}
-              <a
-                href="https://www.deco.cx"
-                aria-label="powered by https://www.deco.cx"
+        <div>
+          <Container class="w-full">
+            <FooterContainer class="flex justify-between w-full">
+              <Text
+                class="flex items-center gap-1"
+                variant="body"
+                tone="default"
               >
-                <Icon id="Deco" height={20} width={60} strokeWidth={0.01} />
-              </a>
-            </Text>
+                Powered by{" "}
+                <a
+                  href="https://www.deco.cx"
+                  aria-label="powered by https://www.deco.cx"
+                >
+                  <Icon id="Deco" height={20} width={60} strokeWidth={0.01} />
+                </a>
+              </Text>
 
-            <ul class="flex items-center justify-center gap-2">
-              <li>
-                <a
-                  href="https://www.instagram.com/deco.cx"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Instagram logo"
-                >
-                  <Icon
-                    class="text-default-inverse"
-                    width={32}
-                    height={32}
-                    id="Instagram"
-                    strokeWidth={1}
-                  />
-                </a>
-              </li>
-              <li>
-                <a
-                  href="http://www.deco.cx/discord"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Discord logo"
-                >
-                  <Icon
-                    class="text-default-inverse"
-                    width={32}
-                    height={32}
-                    id="Discord"
-                    strokeWidth={5}
-                  />
-                </a>
-              </li>
-            </ul>
-          </FooterContainer>
-        </Container>
-      </div>
-    </footer>
+              <ul class="flex items-center justify-center gap-2">
+                <li>
+                  <a
+                    href="https://www.instagram.com/deco.cx"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Instagram logo"
+                  >
+                    <Icon
+                      class="text-default"
+                      width={32}
+                      height={32}
+                      id="Instagram"
+                      strokeWidth={1}
+                    />
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="http://www.deco.cx/discord"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Discord logo"
+                  >
+                    <Icon
+                      class="text-default"
+                      width={32}
+                      height={32}
+                      id="Discord"
+                      strokeWidth={5}
+                    />
+                  </a>
+                </li>
+              </ul>
+            </FooterContainer>
+          </Container>
+        </div>
+      </footer>
+    </div>
   );
 }
 
