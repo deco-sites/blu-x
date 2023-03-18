@@ -12,7 +12,7 @@ export interface Props {
   interval?: number;
 }
 
-function Alert({ alerts = [], interval = 5 }: Props) {
+function Alert({ alerts = [], interval = 3 }: Props) {
   const id = useId();
 
   return (
@@ -20,7 +20,7 @@ function Alert({ alerts = [], interval = 5 }: Props) {
       <Slider class="bg-badge gap-6 scrollbar-none">
         {alerts.map((alert) => (
           <Text
-            class="flex justify-center items-center w-screen h-[38px]"
+            class="flex justify-center text-[14px] items-center w-screen h-[45px]"
             variant="caption"
             tone="default-inverse"
           >

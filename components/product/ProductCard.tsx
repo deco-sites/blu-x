@@ -78,7 +78,7 @@ function ProductCard({ product, preload }: Props) {
           />
           {seller && (
             <div
-              class="absolute bottom-0 hidden sm:group-hover:flex flex-col py-2 gap-2 w-full bg-opacity-10"
+              class="absolute bottom-0 hidden sm:group-hover:flex flex-col gap-2 w-full bg-opacity-10"
               style={{
                 backgroundColor: "rgba(255, 255, 255, 0.75)",
                 backdropFilter: "blur(2px)",
