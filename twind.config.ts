@@ -43,6 +43,7 @@ const options: Omit<Options, "selfURL"> = {
         "subMenu": "#F1F1F1",
         "hover": "rgba(0, 0, 0, 0.04)",
         "hover-inverse": "rgba(255, 255, 255, 0.4)",
+        "bgArrow": "rgba(0, 0, 0, 0.25)",
       },
       textColor: {
         "default": "#000",
