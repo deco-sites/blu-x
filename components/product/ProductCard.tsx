@@ -97,7 +97,7 @@ function ProductCard({ product, preload }: Props) {
             class="overflow-hidden overflow-ellipsis whitespace-nowrap"
             variant="caption"
           >
-            {product.name}
+            {product.isVariantOf?.name}
           </Text>
           <div class="flex items-center gap-2">
             <Text
