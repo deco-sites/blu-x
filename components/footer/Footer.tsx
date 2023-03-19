@@ -41,6 +41,11 @@ export type RedesSociais = {
   instagram?: string;
 };
 
+export type Parceiros = {
+  name?: string;
+  url?: string;
+};
+
 const isIcon = (item: Item): item is IconItem =>
   // deno-lint-ignore no-explicit-any
   typeof (item as any)?.icon === "string";
@@ -84,6 +89,7 @@ export interface Props {
   atendimento?: Atendimento;
   redesSociais?: RedesSociais;
   pagamento?: Certificados[];
+  parceiros: Parceiros[];
 }
 
 function Footer(
@@ -175,17 +181,10 @@ function Footer(
                         class={`flex flex-wrap gap-2`}
                       >
                         {certificados?.map((certificado) => (
-                          <li class="first:pt-[35px] mb-[20px]">
-                            <Picture class="w-full">
-                              <Source
-                                media="(max-width: 767px)"
-                                fetchPriority={"auto"}
-                                src={certificado.image}
-                                width={75}
-                                height={75}
-                              />
+                          <li class="pt-[25px] mb-[20px]">
+                            <Picture class="w-[75px]">
                               <img
-                                class="object-cover w-full sm:h-full"
+                                class="object-cover w-[75px] h-auto"
                                 loading={"lazy"}
                                 src={certificado.image}
                                 alt={certificado?.alt}
