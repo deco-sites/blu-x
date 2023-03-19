@@ -79,10 +79,12 @@ function Navbar({ items, searchbar }: {
           </div>
         </div>
       </div>
-      <div
-        class={`flex-auto hidden md:flex justify-around items-center h-[${navbarHeight}] max-w-[936px] m-auto`}
-      >
+      <div class="bg-[#f9f9f9]">
+        <div
+          class={`flex-auto hidden md:flex justify-around items-center h-[${navbarHeight}] max-w-[936px] m-auto`}
+        >
         {items.map((item) => <NavItem item={item} />)}
+        </div>
       </div>
     </>
   );
