@@ -19,19 +19,27 @@ function NotFound() {
 }
 
 function Gallery({ page }: { page: ProductListingPage }) {
+  const { breadcrumb } = page;
+  console.log(breadcrumb.itemListElement);
+  const title = breadcrumb.itemListElement[0].name;
+
   return (
     <ContainerCustom class="px-4 sm:py-10">
       <div class="relative grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-10 items-center">
         {page.products?.map((product, index) => (
           <div class="w-full list-none">
-            <ProductCard product={product} preload={index === 0} />
+            <ProductCard news={title} product={product} preload={index === 0} />
           </div>
         ))}
       </div>
 
       <div class="flex flex-row items-center justify-center gap-2 my-4">
         <a rel="prev" href={page.pageInfo.previousPage ?? "#"}>
-          <Button title="prev" disabled={!page.pageInfo.previousPage} variant="icon">
+          <Button
+            title="prev"
+            disabled={!page.pageInfo.previousPage}
+            variant="icon"
+          >
             <Icon id="ChevronLeft" width={20} height={20} strokeWidth={2} />
           </Button>
         </a>
@@ -39,7 +47,11 @@ function Gallery({ page }: { page: ProductListingPage }) {
           {page.pageInfo.currentPage + 1}
         </Text>
         <a rel="next" href={page.pageInfo.nextPage ?? "#"}>
-          <Button title="next" disabled={!page.pageInfo.nextPage} variant="icon">
+          <Button
+            title="next"
+            disabled={!page.pageInfo.nextPage}
+            variant="icon"
+          >
             <Icon id="ChevronRight" width={20} height={20} strokeWidth={2} />
           </Button>
         </a>

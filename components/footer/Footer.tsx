@@ -106,7 +106,7 @@ function Footer(
   return (
     <div>
       <a
-        class="block fixed bottom-[90px] right-[25px] z-100 w-[54px] bg-[#000] pb-2"
+        class="block fixed bottom-[90px] right-[25px] z-100 w-[54px] bg-[#000] pb-2 lg:hidden"
         href="#toTheTop"
       >
         <Icon
@@ -510,9 +510,7 @@ function Footer(
           <Container class="w-full">
             <FooterContainer class="w-full py-[15px] text-[10px] text-[#adb5bd] text-center">
               <div class="flex justify-center items-center mb-[15px]">
-                <span
-                  class="flex items-center gap-1 text-[12px] text-[#000]"
-                >
+                <span class="flex items-center gap-1 text-[12px] text-[#000]">
                   Created by{" "}
                   <a
                     href="https://www.deco.cx"
@@ -523,9 +521,7 @@ function Footer(
                 </span>
               </div>
               <div class="flex justify-center items-center mb-[15px]">
-                <span
-                  class="flex items-center gap-1 text-[12px] text-[#000]"
-                >
+                <span class="flex items-center gap-1 text-[12px] text-[#000]">
                   Powered by{" "}
                   <a
                     href="https://www.deco.cx"

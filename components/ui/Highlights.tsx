@@ -37,7 +37,7 @@ function Dots(
         }}
       >
       </style>
-      <ol class="flex items-center justify-center col-span-full gap-4 z-10 pt-[20px]">
+      <ol class="flex items-center justify-center col-span-full gap-4 z-10 pt-[20px] lg:hidden">
         {highlights?.map((_, index) => (
           <li>
             <button
