@@ -123,6 +123,7 @@ const options: Omit<Options, "selfURL"> = {
       boxShadow: {
         sm: "0px 1px 3px 0px #00000014",
         default: "0px 1px 4px 0px #0000001F",
+        default2: "0px 1px 10px 0px rgba(0,0,0,0.25)",
         md: "0px 5px 10px 1px #000",
         lg: "0px 4px 10px 0px #0000001F",
       },
