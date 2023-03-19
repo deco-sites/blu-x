@@ -18,22 +18,19 @@ function HighlightsTwo({ highlights = [], title }: Props) {
   return (
     <div>
       {/* Highlitght 2 */}
-      <div class="max-w-[1320px] grid grid-cols-1 grid-rows-[48px_1fr] py-10 mx-auto px-10">
-        <h2 class="text-center">
-          <Text variant="h3">{title}</Text>
-        </h2>
-
-        <div class="mt-10">
+      <div class="block max-w-[1320px] grid grid-cols-1 md:grid-rows-[48px_1fr] mx-auto md:px-10">
+        <div>
           <Slider
-            class="gap-0"
-            snap="snap-center sm:snap-start block"
+            class="flex gap-2 flex-col md:flex-row "
+            snap="snap-center block"
           >
             {highlights.map(({ href, src, alt }) => (
               <a
                 href={href}
-                class="flex flex-col gap-1 items-center w-full min-w-[50px] gap-4 relative group"
+                class="flex items-center md:min-w-[50px] gap-4 relative group"
               >
                 <Image
+                  class="px-3 w-full"
                   src={src}
                   alt={alt}
                   width={352}
