@@ -109,7 +109,7 @@ function Searchbar({
     <div
       class={`${
         variant === "desktop"
-          ? "md:w-[300px] lg:w-[400px] absolute left-0 top-50 z-50 -translate-y-2/4 -translate-x-[90%] bg-default"
+          ? "md:w-[350px] lg:w-[400px] absolute left-0 top-50 z-50 -translate-y-2/4 -translate-x-[90%] bg-default"
           : "flex flex-col p-4 md:(py-6 px-20)"
       }`}
     >
