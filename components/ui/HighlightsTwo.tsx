@@ -29,7 +29,8 @@ function HighlightsTwo({ highlights = [], title }: Props) {
                 href={href}
                 class="flex items-center md:min-w-[50px] gap-4 relative group"
               >
-                <Image class="px-3 w-full"
+                <Image
+                  class="px-3 w-full"
                   src={src}
                   alt={alt}
                   width={352}
