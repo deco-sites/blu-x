@@ -100,6 +100,7 @@ function Footer(
     atendimento,
     redesSociais,
     pagamento,
+    parceiros,
   }: Props,
 ) {
   return (
@@ -112,20 +113,18 @@ function Footer(
         </Container>
       </div>
 
-      <footer class="w-full bg-footer flex flex-col bg-[#F1F1F1]">
+      <footer class="w-full bg-footer flex flex-col bg-[#F1F1F1] lg:bg-[#fff]">
         <div>
           <Container class="w-full flex flex-col">
             <FooterContainer>
               {/* Desktop view */}
-              <ul class="hidden sm:flex flex-row">
+              <ul class="hidden lg:flex flex-row justify-between max-w-[960px] xl:max-w-[1300px] mx-auto px-[12px]">
                 {sections.map((section) => (
                   <li>
-                    <div>
-                      <div>
-                        <span class="uppercase">
-                          {section.label}
-                        </span>
-                      </div>
+                    <Text variant="footer" tone="title" class="uppercase">
+                      <span>
+                        {section.label}
+                      </span>
 
                       <ul
                         class={`flex ${
@@ -133,18 +132,168 @@ function Footer(
                         } gap-2 pt-2`}
                       >
                         {section.children.map((item) => (
-                          <li>
+                          <li class="first:pt-[25px] mb-[20px]">
                             <SectionItem item={item} />
                           </li>
                         ))}
                       </ul>
-                    </div>
+                    </Text>
                   </li>
                 ))}
+                <li class="pb-[20px]">
+                  <Text variant="footer" tone="title" class="uppercase">
+                    <span>
+                      Certificados
+                    </span>
+
+                    <ul
+                      class={`flex flex-wrap gap-2`}
+                    >
+                      {certificados?.map((certificado) => (
+                        <li class="pt-[25px] mb-[20px]">
+                          <Picture class="w-[75px]">
+                            <img
+                              class="object-cover w-[75px] h-auto"
+                              loading={"lazy"}
+                              src={certificado.image}
+                              alt={certificado?.alt}
+                            />
+                          </Picture>
+                        </li>
+                      ))}
+                    </ul>
+                  </Text>
+                </li>
+                <li class="pb-[20px]">
+                  <Text variant="footer" tone="title" class="uppercase">
+                    <span>
+                      Parceiros
+                    </span>
+
+                    <ul
+                      class={`flex flex-col gap-2`}
+                    >
+                      {parceiros?.map((parceiro) => (
+                        <li class="pt-[25px] mb-[20px]">
+                          <a
+                            class="text-[#000] text-[12px] hover:text-underline"
+                            href={parceiro.url}
+                          >
+                            {parceiro.name}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </Text>
+                </li>
+                <li class="pb-[20px]">
+                  <Text variant="footer" tone="title" class="uppercase">
+                    <span>
+                      Atendimento
+                    </span>
+
+                    <ul
+                      class={`flex flex-col gap-2`}
+                    >
+                      <li class="pt-[25px] mb-[20px]">
+                        <div class="flex items-center justify-start gap-2 mb-[5px]">
+                          <Icon id="Email" width={25} height={25} />
+                          <p class="text-[10px] text-[#000]">
+                            {atendimento?.email}
+                          </p>
+                        </div>
+                        <span class="text-[10px] text-[#000]">
+                          {atendimento?.horario}
+                        </span>
+                      </li>
+                    </ul>
+                  </Text>
+                </li>
+              </ul>
+
+              <ul class="hidden lg:flex flex-row justify-start xl:justify-between max-w-[960px] xl:max-w-[1300px] mx-auto px-[12px] gap-[30px] mt-[45px]">
+                <li class="pb-[20px] min-w-[205px] xl:min-w-[296px] 2xl:min-w-[386px]">
+                  <Text variant="footer" tone="title" class="uppercase">
+                    <span>
+                      Redes Sociais
+                    </span>
+
+                    <ul
+                      class={``}
+                    >
+                      <li class="pt-[25px] mb-[20px] flex items-center  gap-6">
+                        <a href={redesSociais?.facebook}>
+                          <Icon id="Facebook" width={25} height={25} />
+                        </a>
+                        <a href={redesSociais?.instagram}>
+                          <Icon id="Instagram" width={25} height={25} />
+                        </a>
+                      </li>
+                    </ul>
+                  </Text>
+                </li>
+                <li class="pb-[20px] min-w-[406px] xl:min-w-[463px] 2xl:min-w-[493px]">
+                  <Text variant="footer" tone="title" class="uppercase">
+                    <span>
+                      Formas de Pagamento
+                    </span>
+
+                    <ul
+                      class={`flex flex-wrap gap-2`}
+                    >
+                      {pagamento?.map((pagamento) => (
+                        <li class="pt-[25px] mb-[20px]">
+                          <Picture class="w-[75px]">
+                            <img
+                              class="object-cover w-[75px] h-auto"
+                              loading={"lazy"}
+                              src={pagamento.image}
+                              alt={pagamento?.alt}
+                            />
+                          </Picture>
+                        </li>
+                      ))}
+                    </ul>
+                  </Text>
+                </li>
+                <li class="flex justify-center gap-6">
+                  <div class="flex justify-center items-start mb-[15px]">
+                    <div class="text-[11px] ">
+                      Createdby by{" "}
+                      <a
+                        href="https://www.deco.cx"
+                        aria-label="powered by https://www.deco.cx"
+                      >
+                        <Icon
+                          id="Deco"
+                          height={20}
+                          width={60}
+                          strokeWidth={0.01}
+                        />
+                      </a>
+                    </div>
+                  </div>
+                  <div class="flex justify-center items-start mb-[15px]">
+                    <div class="text-[11px] ">
+                      Powered by{" "}
+                      <a
+                        href="https://www.deco.cx"
+                        aria-label="powered by https://www.deco.cx"
+                      >
+                        <Icon
+                          id="Deco"
+                          height={20}
+                          width={60}
+                          strokeWidth={0.01}
+                        />
+                      </a>
+                    </div>
+                  </div>
+                </li>
               </ul>
 
               {/* Mobile view */}
-              <ul class="flex flex-col sm:hidden sm:flex-row gap-[15px]">
+              <ul class="flex flex-col lg:hidden gap-[15px] sm:px-6">
                 {sections.map((section) => (
                   <li class="pb-[20px]">
                     <Text variant="footer" tone="title" class="uppercase">
@@ -196,12 +345,109 @@ function Footer(
                     </details>
                   </Text>
                 </li>
+                <li class="pb-[20px]">
+                  <Text variant="footer" tone="title" class="uppercase">
+                    <details>
+                      <summary>
+                        Parceiros
+                      </summary>
+
+                      <ul
+                        class={`flex flex-col gap-2`}
+                      >
+                        {parceiros?.map((parceiro) => (
+                          <li class="pt-[25px] mb-[20px]">
+                            <a
+                              class="text-[#000] text-[12px] hover:text-underline"
+                              href={parceiro.url}
+                            >
+                              {parceiro.name}
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    </details>
+                  </Text>
+                </li>
+                <li class="pb-[20px]">
+                  <Text variant="footer" tone="title" class="uppercase">
+                    <details>
+                      <summary>
+                        Atendimento
+                      </summary>
+
+                      <ul
+                        class={`flex flex-col gap-2`}
+                      >
+                        <li class="pt-[25px] mb-[20px]">
+                          <div class="flex items-center justify-start gap-2 mb-[5px]">
+                            <Icon id="Email" width={25} height={25} />
+                            <span class="text-[10px] text-[#000]">
+                              {atendimento?.email}
+                            </span>
+                          </div>
+                          <span class="text-[10px] text-[#000]">
+                            {atendimento?.horario}
+                          </span>
+                        </li>
+                      </ul>
+                    </details>
+                  </Text>
+                </li>
+                <li class="pb-[20px]">
+                  <Text variant="footer" tone="title" class="uppercase">
+                    <details>
+                      <summary>
+                        Redes Sociais
+                      </summary>
+
+                      <ul
+                        class={``}
+                      >
+                        <li class="pt-[25px] mb-[20px] flex flex-col gap-6">
+                          <a class="mb-[10px]" href={redesSociais?.facebook}>
+                            <Icon id="Facebook" width={25} height={25} />
+                          </a>
+                          <a href={redesSociais?.instagram}>
+                            <Icon id="Instagram" width={25} height={25} />
+                          </a>
+                        </li>
+                      </ul>
+                    </details>
+                  </Text>
+                </li>
+                <li class="pb-[20px]">
+                  <Text variant="footer" tone="title" class="uppercase">
+                    <details>
+                      <summary>
+                        Formas de Pagamento
+                      </summary>
+
+                      <ul
+                        class={`flex flex-wrap gap-2`}
+                      >
+                        {pagamento?.map((pagamento) => (
+                          <li class="pt-[25px] mb-[20px]">
+                            <Picture class="w-[75px]">
+                              <img
+                                class="object-cover w-[75px] h-auto"
+                                loading={"lazy"}
+                                src={pagamento.image}
+                                alt={pagamento?.alt}
+                              />
+                            </Picture>
+                          </li>
+                        ))}
+                      </ul>
+                    </details>
+                  </Text>
+                </li>
               </ul>
             </FooterContainer>
           </Container>
         </div>
 
-        <div class="bg-[#fff]">
+        <div class="lg:hidden">
           <Container class="w-full">
             <FooterContainer class="w-full py-[15px] text-[10px] text-[#adb5bd] text-center">
               <div class="flex justify-center items-center mb-[15px]">
