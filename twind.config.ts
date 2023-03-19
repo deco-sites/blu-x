@@ -94,6 +94,7 @@ const options: Omit<Options, "selfURL"> = {
         "list-price": "400",
         "newsletter": "300",
         "h3": "300",
+        "font-light": "300",
         "strong": "600",
       },
       animation: {
