@@ -7,7 +7,7 @@ const SORT_QUERY_PARAM = "sort";
 
 // TODO: The search query should also be from a commerce schema
 const options = [
-  { value: "", label: "Relevância" },
+  { value: "", label: "Ordernar por" },
   { value: "price:desc", label: "Maior Preço" },
   { value: "price:asc", label: "Menor Preço" },
   { value: "orders:desc", label: "Mais Pedidos" },
@@ -41,11 +41,11 @@ function Sort() {
       id="sort"
       name="sort"
       onInput={applySort}
-      class="w-min h-[36px] px-1 rounded m-2 text-button font-button text-default hover:bg-hover cursor-pointer outline-none"
+      class="bg-[#000] cursor-pointer text-[#fff] py-[10px] text-[11px] text-semibold min-w-[140px] sm:min-w-[230px] lg:bg-[#fff] lg:border lg:border-[#dee2e6] lg:px-4 lg:min-w-[160px] lg:text-[#909090] lg:text-left text-center appearance-none"
     >
       {options.map(({ value, label }) => (
         <option key={value} value={value} selected={value === sort}>
-          <Text variant="caption">{label}</Text>
+          <Text class="px-2" variant="caption">{label}</Text>
         </option>
       ))}
     </select>
