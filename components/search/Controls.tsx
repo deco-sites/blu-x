@@ -21,8 +21,16 @@ function Controls({ page }: { page: ProductListingPage }) {
   const open = useSignal(false);
   const filters = page?.filters;
 
+  const { breadcrumb } = page;
+  console.log(breadcrumb.itemListElement);
+  const title = breadcrumb.itemListElement[0].name;
+
   return (
     <Container class="flex flex-col justify-between mb-4 p-4 mt-[40px]">
+      <div class="pb-5 text-center">
+        <span class="text-3xl font-light tracking-widest">{title}</span>
+      </div>
+
       <div class="flex items-center justify-between sm:justify-center lg:justify-between sm:gap-[60px]">
         <button
           class="min-w-[140px] lg:hidden sm:min-w-[230px] flex items-center justify-center bg-badge py-[10px] text-[#fff] text-[11px] text-semibold"
