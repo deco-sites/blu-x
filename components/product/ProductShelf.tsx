@@ -70,7 +70,7 @@ function ProductShelf({
       id={id}
       class="w-full grid grid-cols-[80px_1fr_48px] lg:grid-cols-[150px_1fr_48px] grid-rows-[80px_1fr_48px_1fr] lg:grid-rows-[150px_1fr_48px_1fr] relative mt-[60px]"
     >
-      <h2 class="text-center row-start-1 col-span-full text-[23px] text-light lg:text-[40px]">
+      <h2 class="text-center row-start-1 col-span-full text-[23px] font-light lg:text-[40px]">
         <span>{title}</span>
         {url
           ? (
