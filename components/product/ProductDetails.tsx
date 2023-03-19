@@ -25,7 +25,7 @@ export interface Props {
 
 interface Dots {
   interval?: number;
-  imagesProduct?: [ImageObject];
+  imagesProduct?: ImageObject[];
 }
 
 function NotFound() {
@@ -172,7 +172,7 @@ function Details(
                 />
               ))}
             </Slider>
-            <Dots imagesProduct={front} interval={interval} />
+            <Dots imagesProduct={[front, back ?? front]} interval={interval} />
             <Controls />
             <SliderControllerJS
               rootId={id}
