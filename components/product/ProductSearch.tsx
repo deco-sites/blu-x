@@ -91,7 +91,7 @@ function ProductSearch({ product, preload }: Props) {
               {formatPrice(price, offers!.priceCurrency!)}
             </Text>
           </div>
-          <Button as="a" href={product.url}>Visualizar</Button>
+          <Button as="a" href={product.url} variant="show">Visualizar</Button>
         </div>
       </a>
     </div>

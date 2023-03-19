@@ -22,7 +22,6 @@ function Controls({ page }: { page: ProductListingPage }) {
   const filters = page?.filters;
 
   const { breadcrumb } = page;
-  console.log(breadcrumb.itemListElement);
   const title = breadcrumb.itemListElement[0].name;
 
   return (
@@ -38,7 +37,12 @@ function Controls({ page }: { page: ProductListingPage }) {
             open.value = true;
           }}
         >
-          <Icon class="mr-[5px] text-[#FFF]" id="FilterList" width={16} height={16} />
+          <Icon
+            class="mr-[5px] text-[#FFF]"
+            id="FilterList"
+            width={16}
+            height={16}
+          />
           Filtros
         </button>
         <div class="lg:block hidden">
