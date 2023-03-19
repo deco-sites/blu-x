@@ -38,7 +38,7 @@ function Controls({ page }: { page: ProductListingPage }) {
             open.value = true;
           }}
         >
-          <Icon id="FilterList" width={16} height={16} />
+          <Icon class="mr-[5px] text-[#FFF]" id="FilterList" width={16} height={16} />
           Filtros
         </button>
         <div class="lg:block hidden">

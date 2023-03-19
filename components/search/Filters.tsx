@@ -95,7 +95,7 @@ export default function Filters({ filters }: Props) {
               <div
                 class={`${
                   open.value === true
-                    ? "flex max-h-full p-2 lg:block lg:py-0"
+                    ? "flex max-h-full py-2 px-2 lg:block lg:py-0 lg:py-0"
                     : "max-h-0 lg:hidden"
                 } overflow-hidden`}
               >
