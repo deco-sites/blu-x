@@ -21,7 +21,9 @@ function VariantSelector({ product }: Props) {
               <li>
                 <a href={url}>
                   <Avatar
-                    class={url === currentUrl? 'bg-black text-white hover:bg-white hover:text-black': 'hover:bg-black hover:text-white'}
+                    class={url === currentUrl
+                      ? "bg-black text-white hover:bg-white hover:text-black"
+                      : "hover:bg-black hover:text-white"}
                     // deno-lint-ignore no-explicit-any
                     content={value as any}
                     disabled={url === currentUrl}
