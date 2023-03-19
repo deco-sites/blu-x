@@ -744,6 +744,119 @@ const manifest: DecoManifest = {
             },
             "title": "Sections",
           },
+          "copyright": {
+            "title": "Copyright",
+            "type": "object",
+            "properties": {
+              "copy_line1": {
+                "type": [
+                  "string",
+                  "null",
+                ],
+                "title": "Copy_line1",
+              },
+              "copy_line2": {
+                "type": [
+                  "string",
+                  "null",
+                ],
+                "title": "Copy_line2",
+              },
+            },
+            "required": [],
+          },
+          "certificados": {
+            "type": "array",
+            "items": {
+              "title": "Certificados",
+              "type": "object",
+              "properties": {
+                "image": {
+                  "format": "image-uri",
+                  "type": "string",
+                  "title": "Image",
+                },
+                "alt": {
+                  "type": [
+                    "string",
+                    "null",
+                  ],
+                  "title": "Alt",
+                },
+              },
+              "required": [
+                "image",
+              ],
+            },
+            "title": "Certificados",
+          },
+          "atendimento": {
+            "title": "Atendimento",
+            "type": "object",
+            "properties": {
+              "email": {
+                "type": [
+                  "string",
+                  "null",
+                ],
+                "title": "Email",
+              },
+              "horario": {
+                "type": [
+                  "string",
+                  "null",
+                ],
+                "title": "Horario",
+              },
+            },
+            "required": [],
+          },
+          "redesSociais": {
+            "title": "Redes Sociais",
+            "type": "object",
+            "properties": {
+              "facebook": {
+                "type": [
+                  "string",
+                  "null",
+                ],
+                "title": "Facebook",
+              },
+              "instagram": {
+                "type": [
+                  "string",
+                  "null",
+                ],
+                "title": "Instagram",
+              },
+            },
+            "required": [],
+          },
+          "pagamento": {
+            "type": "array",
+            "items": {
+              "title": "Certificados",
+              "type": "object",
+              "properties": {
+                "image": {
+                  "format": "image-uri",
+                  "type": "string",
+                  "title": "Image",
+                },
+                "alt": {
+                  "type": [
+                    "string",
+                    "null",
+                  ],
+                  "title": "Alt",
+                },
+              },
+              "required": [
+                "image",
+              ],
+            },
+            "title": "Pagamento",
+          },
         },
         "required": [],
       },
