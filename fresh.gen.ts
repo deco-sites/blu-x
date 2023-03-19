@@ -512,6 +512,10 @@ const manifest: DecoManifest = {
                       "type": "string",
                       "const": "Meansure",
                     },
+                    {
+                      "type": "string",
+                      "const": "Email",
+                    },
                   ],
                   "title": "Icon",
                   "description": "Image src",
@@ -722,6 +726,10 @@ const manifest: DecoManifest = {
                               {
                                 "type": "string",
                                 "const": "Meansure",
+                              },
+                              {
+                                "type": "string",
+                                "const": "Email",
                               },
                             ],
                             "title": "Icon",
