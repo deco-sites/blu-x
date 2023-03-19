@@ -239,13 +239,13 @@ function Footer(
                     </span>
 
                     <ul
-                      class={`flex flex-wrap gap-2`}
+                      class={`flex flex-wrap gap-2 items-center`}
                     >
                       {pagamento?.map((pagamento) => (
                         <li class="pt-[25px] mb-[20px]">
-                          <Picture class="w-[75px]">
+                          <Picture class="w-[45px]">
                             <img
-                              class="object-cover w-[75px] h-auto"
+                              class="object-cover w-[45px] h-auto"
                               loading={"lazy"}
                               src={pagamento.image}
                               alt={pagamento?.alt}
@@ -259,7 +259,7 @@ function Footer(
                 <li class="flex justify-center gap-6">
                   <div class="flex justify-center items-start mb-[15px]">
                     <div class="text-[11px] ">
-                      Createdby by{" "}
+                      Created by{" "}
                       <a
                         href="https://www.deco.cx"
                         aria-label="powered by https://www.deco.cx"
@@ -428,9 +428,9 @@ function Footer(
                       >
                         {pagamento?.map((pagamento) => (
                           <li class="pt-[25px] mb-[20px]">
-                            <Picture class="w-[75px]">
+                            <Picture class="w-[45px]">
                               <img
-                                class="object-cover w-[75px] h-auto"
+                                class="object-cover w-[45px] h-auto"
                                 loading={"lazy"}
                                 src={pagamento.image}
                                 alt={pagamento?.alt}
@@ -456,7 +456,7 @@ function Footer(
                   variant="body"
                   tone="default"
                 >
-                  Createdby by{" "}
+                  Created by{" "}
                   <a
                     href="https://www.deco.cx"
                     aria-label="powered by https://www.deco.cx"
