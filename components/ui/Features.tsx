@@ -34,7 +34,7 @@ function FeatureHighlights(
         <div class="hidden md:flex flex-row justify-evenly sm:flex-row divide-y-1 sm:divide-y-0 sm:divide-x-1 divide-default mx-6 sm:mx-0 sm:my-10">
           {features.map(({ icon: id = "Truck", title, description }) => (
             <div class="w-2/6">
-              <div class="flex items-center gap-4 py-6 sm:py-0 sm:px-10">
+              <div class="flex md:justify-center items-center gap-4 py-6 sm:py-0 sm:px-10">
                 <Icon
                   class="text-badge"
                   id={id}
