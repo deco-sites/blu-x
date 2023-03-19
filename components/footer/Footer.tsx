@@ -106,7 +106,7 @@ function Footer(
   return (
     <div>
       <a
-        class="block fixed bottom-[90px] right-[25px] z-100 w-[54px] bg-[#000] pb-2"
+        class="block fixed bottom-[90px] right-[25px] z-100 w-[54px] bg-[#000] pb-2 lg:hidden"
         href="#toTheTop"
       >
         <Icon
