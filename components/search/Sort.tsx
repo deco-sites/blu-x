@@ -37,18 +37,34 @@ function Sort() {
   const sort = useSort();
 
   return (
-    <select
-      id="sort"
-      name="sort"
-      onInput={applySort}
-      class="bg-[#000] cursor-pointer text-[#fff] py-[10px] text-[11px] text-semibold min-w-[140px] sm:min-w-[230px] lg:bg-[#fff] lg:border lg:border-[#dee2e6] lg:px-4 lg:min-w-[160px] lg:text-[#909090] lg:text-left text-center appearance-none"
-    >
-      {options.map(({ value, label }) => (
-        <option key={value} value={value} selected={value === sort}>
-          <Text class="px-2" variant="caption">{label}</Text>
-        </option>
-      ))}
-    </select>
+    <div class="relative">
+      <Icon
+        class="text-[#fff] lg:hidden absolute top-[50%] left-[18px] -translate-y-[50%] rotate-[90deg]"
+        id="ArrowsFilter"
+        size={15}
+        strokeWidth={1}
+      />
+
+      <select
+        id="sort"
+        name="sort"
+        onInput={applySort}
+        class="bg-[#000] px-[15px] cursor-pointer text-[#fff] py-[10px] text-[11px] text-semibold min-w-[140px] sm:min-w-[230px] lg:bg-[#fff] lg:border lg:border-[#dee2e6] lg:px-4 lg:min-w-[160px] lg:text-[#909090] lg:text-left text-center appearance-none"
+      >
+        {options.map(({ value, label }) => (
+          <option key={value} value={value} selected={value === sort}>
+            <Text class="px-2" variant="caption">{label}</Text>
+          </option>
+        ))}
+      </select>
+
+      <Icon
+        class="text-[#000] hidden lg:block absolute top-[50%] right-[15px] -translate-y-[50%]"
+        id="ChevronDown"
+        size={20}
+        strokeWidth={1}
+      />
+    </div>
   );
 }
 
