@@ -20,29 +20,28 @@ function NotFound() {
 function Controls({ page }: { page: ProductListingPage }) {
   const open = useSignal(false);
   const filters = page?.filters;
-  const breadcrumb = page?.breadcrumb;
 
   return (
-    <Container class="flex flex-col justify-between mb-4 md:mb-0 p-4 md:p-0 sm:gap-4 sm:flex-row sm:h-[53px] md:border-b-1">
-      <div class="flex flex-row items-center sm:p-0 mb-2">
-        <Breadcrumb itemListElement={breadcrumb?.itemListElement} />
-      </div>
-      <div class="flex flex-row sm:gap-4 items-center justify-between border-b-1 border-default md:border-none">
-        <Button
-          variant="tertiary"
+    <Container class="flex flex-col justify-between mb-4 p-4 mt-[40px]">
+      <div class="flex items-center justify-between sm:justify-center lg:justify-between sm:gap-[60px]">
+        <button
+          class="min-w-[140px] lg:hidden sm:min-w-[230px] flex items-center justify-center bg-badge py-[10px] text-[#fff] text-[11px] text-semibold"
           onClick={() => {
             open.value = true;
           }}
         >
-          Filtrar
           <Icon id="FilterList" width={16} height={16} />
-        </Button>
+          Filtros
+        </button>
+        <div class="lg:block hidden">
+          <Filters filters={filters} />
+        </div>
         <Sort />
       </div>
 
       <Modal
-        title="Filtrar"
-        mode="sidebar-right"
+        title="Filtros"
+        mode="filter"
         open={open.value}
         onClose={() => {
           open.value = false;
