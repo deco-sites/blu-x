@@ -1109,6 +1109,13 @@ const manifest: DecoManifest = {
             "type": "string",
             "title": "Title",
           },
+          "interval": {
+            "type": [
+              "number",
+              "null",
+            ],
+            "title": "Interval",
+          },
         },
         "required": [
           "title",
