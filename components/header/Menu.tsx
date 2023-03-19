@@ -40,7 +40,7 @@ function MenuItem({ item, level = 0 }: { item: INavItem; level?: number }) {
         {hasChildren && (
           <Button variant="icon">
             <Icon
-              class={`duration-300 ease-out ${
+              class={`duration-500 ease-out ${
                 open.value === true ? "-scale-y-100" : ""
               }`}
               id="ChevronDown"
@@ -56,7 +56,7 @@ function MenuItem({ item, level = 0 }: { item: INavItem; level?: number }) {
         <ul
           class={`flex-col ${
             open.value === true ? "flex max-h-full p-2" : "max-h-0"
-          } bg-subMenu -mx-3 ease-out duration-500 overflow-hidden`}
+          } bg-subMenu -mx-3 ease-out duration-1000 overflow-hidden`}
         >
           {item.children!.map((node) => (
             <MenuItem
