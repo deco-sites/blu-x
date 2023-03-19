@@ -16,7 +16,7 @@ if (IS_BROWSER && typeof window.HTMLDialogElement === "undefined") {
 
 export type Props = JSX.IntrinsicElements["dialog"] & {
   title?: string;
-  mode?: "sidebar-right" | "sidebar-left" | "center" | "sidebar-top";
+  mode?: "sidebar-right" | "sidebar-left" | "center" | "sidebar-top" | "filter";
   onClose?: () => Promise<void> | void;
   loading?: "lazy" | "eager";
 };
@@ -29,6 +29,7 @@ const styles = {
   center: "",
   "sidebar-top":
     "animate-slide-top min-w-full z-40 relative top-[98px] backdropSearch",
+  "filter": "animate-slide-right max-h-full h-full backdrop min-w-[250px]",
 };
 
 const Modal = ({
@@ -68,10 +69,18 @@ const Modal = ({
       onClick={(e) =>
         (e.target as HTMLDialogElement).tagName === "DIALOG" && onClose?.()}
     >
-      <section class="pt-4 h-full bg-default flex flex-col">
+      <section
+        class={`${
+          mode === "filter" ? "" : "pt-4"
+        } h-full bg-default flex flex-col`}
+      >
         {title
           ? (
-            <header class="flex px-4 justify-between items-center pb-4 border-b-1 border-default">
+            <header
+              class={`flex px-4 justify-between items-center pb-4 border-b-1 border-default ${
+                mode === "filter" ? "pt-4 bg-[#f2f2f2]" : ""
+              }`}
+            >
               <h1 class="flex flex-start items-center">
                 <Button
                   as="a"
@@ -79,9 +88,27 @@ const Modal = ({
                   href="/login"
                   aria-label="Log in"
                 >
-                  <Icon id="User" width={20} height={20} strokeWidth={0.4} />
+                  {mode === "sidebar-left"
+                    ? (
+                      <Icon
+                        id="User"
+                        width={20}
+                        height={20}
+                        strokeWidth={0.4}
+                      />
+                    )
+                    : ""}
                 </Button>
-                <Text variant="small-text">{title}</Text>
+                <Text
+                  variant="small-text"
+                  class={`${
+                    mode === "filter"
+                      ? "text-uppercase text-badge text-semibold"
+                      : ""
+                  }`}
+                >
+                  {title}
+                </Text>
               </h1>
               <Button variant="icon" onClick={onClose}>
                 <Icon id="XMark" width={15} height={15} strokeWidth={2} />
