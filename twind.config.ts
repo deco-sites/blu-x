@@ -64,6 +64,7 @@ const options: Omit<Options, "selfURL"> = {
         "focus": "#3379EF",
         "positive": "#1A7346",
         "critical": "#B44125",
+        "frete": "#A9A9A9",
       },
       outline: {
         interactive: ["2px solid #3379EF", "2px"],
@@ -93,6 +94,7 @@ const options: Omit<Options, "selfURL"> = {
         "list-price": "400",
         "newsletter": "300",
         "h3": "300",
+        "strong": "600",
       },
       animation: {
         "slide-left": "slide-left-frame 0.4s ease normal",
@@ -121,7 +123,7 @@ const options: Omit<Options, "selfURL"> = {
       boxShadow: {
         sm: "0px 1px 3px 0px #00000014",
         default: "0px 1px 4px 0px #0000001F",
-        md: "0px 1px 5px 0px #00000024",
+        md: "0px 5px 10px 1px #000",
         lg: "0px 4px 10px 0px #0000001F",
       },
     },
