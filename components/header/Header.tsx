@@ -75,6 +75,8 @@ function Header(
         menu={{ items: navItems }}
         searchbar={searchbar}
       />
+
+      <div id="toTheTop"></div>
     </header>
   );
 }

@@ -105,6 +105,19 @@ function Footer(
 ) {
   return (
     <div>
+      <a
+        class="block fixed bottom-[90px] right-[25px] z-100 w-[54px] bg-[#000] pb-2"
+        href="#toTheTop"
+      >
+        <Icon
+          class="-rotate-90 mx-auto my-2"
+          id="ArrowUp"
+          width={25}
+          height={25}
+        />
+        <p class="text-[#fff] text-center text-[9px]">Voltar ao topo</p>
+      </a>
+
       <div class="w-full flex flex-col bg-black">
         <Container class="w-full flex flex-col">
           <FooterContainer>
@@ -197,7 +210,12 @@ function Footer(
                     >
                       <li class="pt-[25px] mb-[20px]">
                         <div class="flex items-center justify-start gap-2 mb-[5px]">
-                          <Icon id="Email" width={25} height={25} />
+                          <Icon
+                            class="text-badge"
+                            id="Email"
+                            width={25}
+                            height={25}
+                          />
                           <p class="text-[10px] text-[#000]">
                             {atendimento?.email}
                           </p>
@@ -300,8 +318,14 @@ function Footer(
                   <li class="pb-[20px]">
                     <Text variant="footer" tone="title" class="uppercase">
                       <details>
-                        <summary>
+                        <summary class="list-none flex justify-between items-center">
                           {section.label}
+                          <Icon
+                            class="text-[#000]"
+                            id="ChevronDown"
+                            size={20}
+                            strokeWidth={1}
+                          />
                         </summary>
 
                         <ul
@@ -324,8 +348,14 @@ function Footer(
                 <li class="pb-[20px]">
                   <Text variant="footer" tone="title" class="uppercase">
                     <details>
-                      <summary>
+                      <summary class="list-none flex justify-between items-center">
                         Certificados
+                        <Icon
+                          class="text-[#000]"
+                          id="ChevronDown"
+                          size={20}
+                          strokeWidth={1}
+                        />
                       </summary>
 
                       <ul
@@ -350,8 +380,14 @@ function Footer(
                 <li class="pb-[20px]">
                   <Text variant="footer" tone="title" class="uppercase">
                     <details>
-                      <summary>
+                      <summary class="list-none flex justify-between items-center">
                         Parceiros
+                        <Icon
+                          class="text-[#000]"
+                          id="ChevronDown"
+                          size={20}
+                          strokeWidth={1}
+                        />
                       </summary>
 
                       <ul
@@ -374,8 +410,14 @@ function Footer(
                 <li class="pb-[20px]">
                   <Text variant="footer" tone="title" class="uppercase">
                     <details>
-                      <summary>
-                        Atendimento
+                      <summary class="list-none flex justify-between items-center">
+                        Atendimentos
+                        <Icon
+                          class="text-[#000]"
+                          id="ChevronDown"
+                          size={20}
+                          strokeWidth={1}
+                        />
                       </summary>
 
                       <ul
@@ -383,7 +425,12 @@ function Footer(
                       >
                         <li class="pt-[25px] mb-[20px]">
                           <div class="flex items-center justify-start gap-2 mb-[5px]">
-                            <Icon id="Email" width={25} height={25} />
+                            <Icon
+                              class="text-badge"
+                              id="Email"
+                              width={25}
+                              height={25}
+                            />
                             <span class="text-[10px] text-[#000]">
                               {atendimento?.email}
                             </span>
@@ -399,34 +446,44 @@ function Footer(
                 <li class="pb-[20px]">
                   <Text variant="footer" tone="title" class="uppercase">
                     <details>
-                      <summary>
-                        Redes Sociais
+                      <summary class="list-none flex justify-between items-center">
+                        Redes sociais
+                        <Icon
+                          class="text-[#000]"
+                          id="ChevronDown"
+                          size={20}
+                          strokeWidth={1}
+                        />
                       </summary>
 
-                      <ul
-                        class={``}
+                      <div
+                        class={`flex flex-wrap items-center gap-4 pt-6`}
                       >
-                        <li class="pt-[25px] mb-[20px] flex flex-col gap-6">
-                          <a class="mb-[10px]" href={redesSociais?.facebook}>
-                            <Icon id="Facebook" width={25} height={25} />
-                          </a>
-                          <a href={redesSociais?.instagram}>
-                            <Icon id="Instagram" width={25} height={25} />
-                          </a>
-                        </li>
-                      </ul>
+                        <a href={redesSociais?.facebook}>
+                          <Icon id="Facebook" width={25} height={25} />
+                        </a>
+                        <a href={redesSociais?.instagram}>
+                          <Icon id="Instagram" width={25} height={25} />
+                        </a>
+                      </div>
                     </details>
                   </Text>
                 </li>
                 <li class="pb-[20px]">
                   <Text variant="footer" tone="title" class="uppercase">
                     <details>
-                      <summary>
-                        Formas de Pagamento
+                      <summary class="list-none flex justify-between items-center">
+                        Formas de pagamento
+                        <Icon
+                          class="text-[#000]"
+                          id="ChevronDown"
+                          size={20}
+                          strokeWidth={1}
+                        />
                       </summary>
 
                       <ul
-                        class={`flex flex-wrap gap-2`}
+                        class={`flex flex-wrap items-center gap-2`}
                       >
                         {pagamento?.map((pagamento) => (
                           <li class="pt-[25px] mb-[20px]">
@@ -453,10 +510,8 @@ function Footer(
           <Container class="w-full">
             <FooterContainer class="w-full py-[15px] text-[10px] text-[#adb5bd] text-center">
               <div class="flex justify-center items-center mb-[15px]">
-                <Text
-                  class="flex items-center gap-1"
-                  variant="body"
-                  tone="default"
+                <span
+                  class="flex items-center gap-1 text-[12px] text-[#000]"
                 >
                   Created by{" "}
                   <a
@@ -465,13 +520,11 @@ function Footer(
                   >
                     <Icon id="Deco" height={20} width={60} strokeWidth={0.01} />
                   </a>
-                </Text>
+                </span>
               </div>
               <div class="flex justify-center items-center mb-[15px]">
-                <Text
-                  class="flex items-center gap-1"
-                  variant="body"
-                  tone="default"
+                <span
+                  class="flex items-center gap-1 text-[12px] text-[#000]"
                 >
                   Powered by{" "}
                   <a
@@ -480,7 +533,7 @@ function Footer(
                   >
                     <Icon id="Deco" height={20} width={60} strokeWidth={0.01} />
                   </a>
-                </Text>
+                </span>
               </div>
             </FooterContainer>
           </Container>

@@ -516,6 +516,10 @@ const manifest: DecoManifest = {
                       "type": "string",
                       "const": "Email",
                     },
+                    {
+                      "type": "string",
+                      "const": "ArrowUp",
+                    },
                   ],
                   "title": "Icon",
                   "description": "Image src",
@@ -730,6 +734,10 @@ const manifest: DecoManifest = {
                               {
                                 "type": "string",
                                 "const": "Email",
+                              },
+                              {
+                                "type": "string",
+                                "const": "ArrowUp",
                               },
                             ],
                             "title": "Icon",
@@ -1100,6 +1108,13 @@ const manifest: DecoManifest = {
           "title": {
             "type": "string",
             "title": "Title",
+          },
+          "interval": {
+            "type": [
+              "number",
+              "null",
+            ],
+            "title": "Interval",
           },
         },
         "required": [

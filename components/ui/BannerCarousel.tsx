@@ -112,6 +112,7 @@ function Dots({ images, interval = 0 }: Props) {
         {images?.map((_, index) => (
           <li class="h-full">
             <button
+              title="next&prev"
               data-dot={index}
               aria-label={`go to slider item ${index}`}
               class="h-full rounded focus:outline-none group"
