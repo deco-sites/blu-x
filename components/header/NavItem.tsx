@@ -8,18 +8,25 @@ export interface INavItem {
   children?: INavItem[];
 }
 
-function NavItem({ item, lastChildren }: { item: INavItem; lastChildren: boolean }) {
+function NavItem(
+  { item, lastChildren }: { item: INavItem; lastChildren: boolean },
+) {
   const { href, label, children } = item;
 
   return (
     <li class="group flex items-center relative h-full">
       <a href={href} class="px-4 py-3 relative">
         <Text
-          class={`${lastChildren ? 'text-badge' : ''} group-hover:text-[#ff5100] text-nav-bar text-uppercase tracking-[2px]`}
+          class={`${
+            lastChildren ? "text-badge" : ""
+          } group-hover:text-[#ff5100] text-nav-bar text-uppercase tracking-[2px]`}
           variant="menu"
         >
           {label}
-          <div class={`w-full duration-300 ease-out max-w-[0px] h-[1px] bg-badge b overflow-hidden group-hover:max-w-full`}></div>
+          <div
+            class={`w-full duration-300 ease-out max-w-[0px] h-[1px] bg-badge b overflow-hidden group-hover:max-w-full`}
+          >
+          </div>
         </Text>
       </a>
 

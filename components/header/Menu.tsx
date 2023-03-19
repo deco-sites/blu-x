@@ -8,14 +8,20 @@ export interface Props {
   items: INavItem[];
 }
 
-function MenuItem({ item, level = 0, lastChildren = false }: { item: INavItem; level?: number, lastChildren?: boolean }) {
+function MenuItem(
+  { item, level = 0, lastChildren = false }: {
+    item: INavItem;
+    level?: number;
+    lastChildren?: boolean;
+  },
+) {
   const open = useSignal(false);
   const hasChildren = Array.isArray(item.children) && item.children.length > 0;
 
   const title = (
     <Text
       class={`flex-grow min-h-[40px] flex items-center justify-start hover:text-badge hover:text-underline ${
-        level === 0 ? `text-uppercase ${lastChildren ? 'text-badge' : ''}` : ""
+        level === 0 ? `text-uppercase ${lastChildren ? "text-badge" : ""}` : ""
       }`}
       variant="menu"
     >
@@ -81,7 +87,9 @@ function Menu({ items }: Props) {
   return (
     <>
       <ul class="px-3 flex-grow flex flex-col">
-        {items.map((item, index) => <MenuItem item={item} lastChildren={index + 1 == items.length} />)}
+        {items.map((item, index) => (
+          <MenuItem item={item} lastChildren={index + 1 == items.length} />
+        ))}
       </ul>
 
       {
