@@ -31,20 +31,24 @@ function NavItem({ item }: { item: INavItem }) {
             <ul class="gap-0 py-5">
               {children.map((node) => (
                 <li class="px-5 py-0.5">
-                  <a class="text-left hover:underline" href={node.href} >
-                    <span class="pr-40 text-[12px] font-menu">{node.label}</span>
+                  <a class="text-left hover:underline" href={node.href}>
+                    <span class="pr-40 text-[12px] font-menu">
+                      {node.label}
+                    </span>
                   </a>
-                  {node.children ? (
-                    <ul class="flex flex-col gap-1 mt-4 text-left">
-                    {node.children?.map((leaf) => (
-                      <li>
-                        <a class="hover:underline" href={leaf.href}>
-                          <Text variant="caption">{leaf.label}</Text>
-                        </a>
-                      </li>
-                    ))}
-                  </ul>) : ''}
-                  
+                  {node.children
+                    ? (
+                      <ul class="flex flex-col gap-1 mt-4 text-left">
+                        {node.children?.map((leaf) => (
+                          <li>
+                            <a class="hover:underline" href={leaf.href}>
+                              <Text variant="caption">{leaf.label}</Text>
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    )
+                    : ""}
                 </li>
               ))}
             </ul>
