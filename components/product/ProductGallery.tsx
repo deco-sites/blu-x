@@ -20,7 +20,7 @@ function NotFound() {
 
 function Gallery({ page }: { page: ProductListingPage }) {
   const { breadcrumb } = page;
-  console.log(breadcrumb.itemListElement);
+
   const title = breadcrumb.itemListElement[0].name;
 
   return (

@@ -22,7 +22,6 @@ function Controls({ page }: { page: ProductListingPage }) {
   const filters = page?.filters;
 
   const { breadcrumb } = page;
-  console.log(breadcrumb.itemListElement);
   const title = breadcrumb.itemListElement[0].name;
 
   return (
