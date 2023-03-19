@@ -6,15 +6,15 @@ interface Props {
   itemListElement: BreadcrumbList["itemListElement"];
 }
 
-function Item({ name, item }: { name?: string; item?: string }) {
+function Item({ name, item, lastChild }: { name?: string; item?: string; lastChild?:boolean }) {
   if (!name || !item) {
     return null;
   }
 
   return (
     <li class="whitespace-nowrap overflow-hidden overflow-ellipsis group">
-      <a href={item} class="hover:underline">
-        <span class="text-[10px] group-last:text-badge text-[#343a40]">
+      <a href={item} class="hover:no-underline">
+        <span class={`font-extralight uppercase ${lastChild ? 'text-badge' : ''}`}>
           {name}
         </span>
       </a>
@@ -24,14 +24,14 @@ function Item({ name, item }: { name?: string; item?: string }) {
 
 function Breadcrumb({ itemListElement = [] }: Props) {
   return (
-    <ul class="flex justify-center mt-4 pb-2 -mb-2 flex-row gap-2 items-center w-full lg:justify-start lg:pl-4">
+    <ul class="text-[10px] flex justify-center mt-4 pb-2 -mb-2 flex-row gap-2 items-center w-full lg:justify-start lg:pl-4 last:text-badge">
       <Item name="Home" item="/" />
-      {itemListElement.map((item) => (
+      {itemListElement.map((item, i, itemListElement) => (       
         <>
-          <li class="mt-0.5 text-300 text-[#343a40]">
+          <li class="mt-0.5">
             |
           </li>
-          <Item {...item} />
+          <Item name={item.name} item={item.item} lastChild={i+1 == itemListElement.length}/> 
         </>
       ))}
     </ul>
