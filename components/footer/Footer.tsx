@@ -211,7 +211,9 @@ function Footer(
                 </li>
               </ul>
 
-              <ul class="hidden lg:flex flex-row justify-start xl:justify-between max-w-[960px] xl:max-w-[1300px] mx-auto px-[12px] gap-[30px] mt-[45px]">
+              <div class="border-b border-[#F2F2F2] w-full my-[30px]"></div>
+
+              <ul class="hidden lg:flex flex-row justify-start xl:justify-between max-w-[960px] xl:max-w-[1300px] mx-auto px-[12px] gap-[30px]">
                 <li class="pb-[20px] min-w-[205px] xl:min-w-[296px] 2xl:min-w-[386px]">
                   <Text variant="footer" tone="title" class="uppercase">
                     <span>
