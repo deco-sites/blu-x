@@ -857,8 +857,35 @@ const manifest: DecoManifest = {
             },
             "title": "Pagamento",
           },
+          "parceiros": {
+            "type": "array",
+            "items": {
+              "title": "Parceiros",
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": [
+                    "string",
+                    "null",
+                  ],
+                  "title": "Name",
+                },
+                "url": {
+                  "type": [
+                    "string",
+                    "null",
+                  ],
+                  "title": "Url",
+                },
+              },
+              "required": [],
+            },
+            "title": "Parceiros",
+          },
         },
-        "required": [],
+        "required": [
+          "parceiros",
+        ],
       },
       "outputSchema": null,
     },
