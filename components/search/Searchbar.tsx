@@ -109,7 +109,7 @@ function Searchbar({
     <div
       class={`${
         variant === "desktop"
-          ? "absolute left-0 top-50 z-50 -translate-y-2/4 -translate-x-[90%] bg-default"
+          ? "md:w-[300px] lg:w-[400px] absolute left-0 top-50 z-50 -translate-y-2/4 -translate-x-[90%] bg-default"
           : "flex flex-col p-4 md:(py-6 px-20)"
       }`}
     >
@@ -138,7 +138,7 @@ function Searchbar({
           <input
             ref={searchInputRef}
             id="search-input"
-            class="flex-grow outline-none placeholder-shown:sibling:hidden max-w-[60%]"
+            class="flex-grow outline-none placeholder-shown:sibling:hidden max-w-[60%] md:max-w-[75%]"
             name={name}
             defaultValue={query}
             onInput={(e) => {

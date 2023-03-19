@@ -30,11 +30,11 @@ interface Dots {
 
 function NotFound() {
   return (
-    <div class="w-full flex justify-center items-center py-28">
+    <div class="w-full flex justify-center items-center py-28 mt-[98px]">
       <div class="flex flex-col items-center justify-center gap-6">
         <Text variant="heading-2">Página não encontrada</Text>
         <a href="/">
-          <Button>Voltar à página inicial</Button>
+          <Button variant="show">Voltar à página inicial</Button>
         </a>
       </div>
     </div>

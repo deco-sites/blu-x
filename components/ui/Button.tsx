@@ -13,6 +13,8 @@ export type Props =
   };
 
 const variants = {
+  show:
+    "h-[36px] py-1 px-3 bg-badge text-button text-default-inverse border-transparent hover:opacity-75 transition duration-300 active:bg-interactive active:text-default-inverse active:border-transparent disabled:border-default disabled:text-subdued disabled:bg-interactive-inverse focus:outline-none ",
   primary:
     "h-[36px] py-6 px-3 bg-badge font-button text-button text-default-inverse border-transparent hover:opacity-75 transition duration-300 active:bg-interactive active:text-default-inverse active:border-transparent disabled:border-default disabled:text-subdued disabled:bg-interactive-inverse focus:outline-none ",
   secondary:
