@@ -19,22 +19,23 @@ function HighlightsThree({ highlights = [], title }: Props) {
   return (
     <div>
       {/* Highlitght 3 */}
-      <div class="max-w-[1320px] grid grid-cols-1 grid-rows-[48px_1fr] py-10 mx-auto">
+      <div class="block max-w-[1320px] grid grid-cols-1 md:grid-rows-[48px_1fr] mx-auto md:px-10">
         <h2 class="text-center">
           <Text variant="h3">{title}</Text>
         </h2>
 
         <div class="mt-10">
           <Slider
-            class="gap-6"
-            snap="snap-center sm:snap-start block first:ml-6 sm:first:ml-0 last:mr-6 sm:last:mr-0"
+            class="flex gap-2 flex-col md:flex-row "
+            snap="snap-center sm:snap-start block md:first:ml-6 first:ml-0 md:last:mr-6 last:mr-0"
           >
             {highlights.map(({ href, src, alt }) => (
               <a
                 href={href}
-                class="flex flex-col gap-4 items-center min-w-[190px] relative group"
+                class="flex items-center md:min-w-[50px] gap-4 relative group"
               >
                 <Image
+                class="px-3 w-full"
                   src={src}
                   alt={alt}
                   width={663}
