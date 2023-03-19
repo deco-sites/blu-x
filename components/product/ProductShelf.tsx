@@ -18,7 +18,9 @@ export interface Props {
   interval?: number;
 }
 
-function Dots({ products, interval = 0 }: { products: Product[]; interval: number}) {
+function Dots(
+  { products, interval = 0 }: { products: Product[]; interval: number },
+) {
   return (
     <>
       <style
