@@ -19,12 +19,17 @@ function NotFound() {
 }
 
 function Gallery({ page }: { page: ProductListingPage }) {
+
+  const { breadcrumb } = page;
+  console.log(breadcrumb.itemListElement);
+  const title = breadcrumb.itemListElement[0].name;
+
   return (
     <ContainerCustom class="px-4 sm:py-10">
       <div class="relative grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-10 items-center">
         {page.products?.map((product, index) => (
           <div class="w-full list-none">
-            <ProductCard product={product} preload={index === 0} />
+            <ProductCard news={title} product={product} preload={index === 0} />
           </div>
         ))}
       </div>

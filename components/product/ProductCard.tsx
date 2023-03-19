@@ -36,11 +36,12 @@ function Sizes(product: Product) {
 
 interface Props {
   product: Product;
+  news?: string;
   /** Preload card image */
   preload?: boolean;
 }
 
-function ProductCard({ product, preload }: Props) {
+function ProductCard({ product, preload, news }: Props) {
   const {
     url,
     productID,
@@ -76,6 +77,14 @@ function ProductCard({ product, preload }: Props) {
             class="rounded w-full hidden group-hover:block"
             sizes="(max-width: 640px) 50vw, 20vw"
           />
+          {news == "Novidades" && (
+            <div class="uppercase tracking-[2px] absolute h-10 w-10 top-2 left-2 bg-black overflow-y-hidden">
+              <div class="text-white text-[8px] break-words px-[5px] py-[8px]">
+                {news.substring(0,8)}
+              </div>
+            </div>
+          )}
+
           {seller && (
             <div
               class="absolute bottom-0 hidden sm:group-hover:flex flex-col gap-2 w-full bg-opacity-10"
