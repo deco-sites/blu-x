@@ -219,7 +219,7 @@ function Details(
               </div>
             </div>
             {/* Add to Cart and Favorites button */}
-            <div class="fixed bottom-0 left-0 min-w-full bg-default shadow-md lg:relative lg:shadow-none">
+            <div class="fixed bottom-0 z-50 left-0 min-w-full bg-default shadow-md lg:relative lg:shadow-none">
               <div class="flex justify-between items-center px-2 py-4">
                 <Text
                   class="block text-badge lg:hidden"
