@@ -117,7 +117,7 @@ function Searchbar({
         <form
           id="searchbar"
           action={action}
-          class="flex-grow flex gap-3 px-3 py-2 border border-default max-w-full relative"
+          class="flex-grow flex gap-3 px-3 py-2 border border-default max-w-full md:scrollbar-none relative"
         >
           <div class="absolute right-[5px]">
             <Button
@@ -172,7 +172,7 @@ function Searchbar({
       <div class="flex flex-col gap-6 divide-y divide-default 
                   empty:mt-0 md:absolute md:bottom-0 md:left-[50%] 
                   md:translate-y-full md:-translate-x-2/4 md:bg-default
-                  md:px-2 md:min-w-full md:max-h-[500px] md:overflow-scroll">
+                  md:px-2 md:min-w-full md:max-h-[500px] md:overflow-scroll md:scrollbar-none">
         {searches && searches.length > 0 && !hasSuggestions && (
           <SearchTermList title="Mais buscados" terms={searches} />
         )}
