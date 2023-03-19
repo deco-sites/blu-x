@@ -49,7 +49,7 @@ function ProductCard({ product, preload }: Props) {
     offers,
   } = product;
   const [front, back] = images ?? [];
-  const { listPrice, price, seller } = useOffer(offers);
+  const { listPrice, price, seller, installments } = useOffer(offers);
 
   return (
     <div
@@ -111,6 +111,9 @@ function ProductCard({ product, preload }: Props) {
               {formatPrice(price, offers!.priceCurrency!)}
             </Text>
           </div>
+          <Text class="block" tone="subdued" variant="caption">
+            ou {installments}
+          </Text>
         </div>
       </a>
     </div>

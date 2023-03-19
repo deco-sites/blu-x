@@ -1042,6 +1042,13 @@ const manifest: DecoManifest = {
             "type": "string",
             "title": "Title",
           },
+          "url": {
+            "type": [
+              "string",
+              "null",
+            ],
+            "title": "Url",
+          },
           "products": {
             "$id": "1f15a836acd2ecbefef6eaf34ebcff98e39811f3",
             "format": "live-function",
@@ -1054,6 +1061,13 @@ const manifest: DecoManifest = {
               "null",
             ],
             "title": "Items Per Page",
+          },
+          "interval": {
+            "type": [
+              "number",
+              "null",
+            ],
+            "title": "Interval",
           },
         },
         "required": [
