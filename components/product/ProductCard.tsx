@@ -80,7 +80,7 @@ function ProductCard({ product, preload, news }: Props) {
           {news == "Novidades" && (
             <div class="uppercase tracking-[2px] absolute h-10 w-10 top-2 left-2 bg-black overflow-y-hidden">
               <div class="text-white text-[8px] break-words px-[5px] py-[8px]">
-                {news.substring(0,8)}
+                {news.substring(0, 8)}
               </div>
             </div>
           )}
